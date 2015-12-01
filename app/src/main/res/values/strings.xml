@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">M-Calendar</string>
+    <string name="organizedBy">Organized by: %1$s </string>
+    <string name="status">Status: %1$s</string>
+    <string name="upcomingMeetings">Upcoming meetings: </string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

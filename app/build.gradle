@@ -51,6 +51,7 @@ dependencies {
 
     compile "com.j256.ormlite:ormlite-core:$ORMVersion"
     compile "com.j256.ormlite:ormlite-android:$ORMVersion"
+    compile 'com.android.support:design:23.1.1'
 
     testCompile 'org.robolectric:robolectric:3.0'
     testCompile 'junit:junit:4.12'
