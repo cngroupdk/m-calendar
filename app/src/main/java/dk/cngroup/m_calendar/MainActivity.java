@@ -1,5 +1,6 @@
 package dk.cngroup.m_calendar;
 
+import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -10,6 +11,7 @@ import org.androidannotations.annotations.ViewById;
 
 @EActivity(R.layout.activity_main)
 public class MainActivity extends AppCompatActivity {
+
 
     @ViewById(R.id.organizedBy)
     TextView organizedBy;
