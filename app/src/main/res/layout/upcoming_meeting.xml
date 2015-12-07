@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView style="@style/CircleStyledTextView"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:text="@string/default_name"
+        android:id="@+id/organizator" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView style="@style/SmallSizeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/time"
+            android:id="@+id/meetingTime" />
+
+        <TextView style="@style/SmallSizeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/meeting_name"
+            android:id="@+id/nameOfMeeting" />
+    </LinearLayout>
+</LinearLayout>

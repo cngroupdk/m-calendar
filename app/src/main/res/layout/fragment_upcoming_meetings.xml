@@ -1,0 +1,51 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="dk.cngroup.m_calendar.UpcomingMeetingsFragment">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="1">
+
+        <TextView style="@style/LargeSizeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/upcomingMeetings"
+            android:id="@+id/textView"
+            android:layout_gravity="right" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/upButton"
+            android:src="@drawable/up"
+            android:background="@drawable/menu_button"
+            android:layout_gravity="center_horizontal" />
+
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/scrollView" >
+
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="67dp"
+                android:textColor="@color/labels"
+                android:id="@+id/listView"
+                android:clickable="false" />
+        </ScrollView>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/downButton"
+            android:src="@drawable/down"
+            android:background="@drawable/menu_button"
+            android:layout_gravity="center_horizontal"
+           />
+    </LinearLayout>
+
+</FrameLayout>

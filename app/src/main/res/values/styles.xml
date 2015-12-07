@@ -9,11 +9,13 @@
         <item name="android:windowContentOverlay">@null</item>
     </style>
 
-    <style name="CircleStyledTextView" parent="@android:style/TextAppearance.Medium">
+    <style name="CircleStyledTextView" parent="@android:style/TextAppearance.Small">
         <item name="android:background">@drawable/circle</item>
         <item name="android:gravity">center_vertical|center_horizontal</item>
         <item name="android:layout_gravity">center</item>
-        <item name="android:color">@color/labels</item>
+        <item name="android:textColor">@color/labels</item>
+        <item name="android:layout_marginRight">5dp</item>
+        <item name="android:textAllCaps">true</item>
     </style>
 
     <style name="MediumSizeTextView" parent="@android:style/TextAppearance.Medium">
@@ -21,7 +23,16 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="SmallSizeTextView" parent="@android:style/TextAppearance.Small">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
     <style name="LargeSizeTextView" parent="@android:style/TextAppearance.Medium">
         <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="SmallButton" parent="@android:style/TextAppearance.Small">
+        <item name="android:textColor">@color/cnLightBlue</item>
+        <item name="android:textStyle">bold</item>
     </style>
 </resources>

@@ -1,0 +1,76 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" tools:context="dk.cngroup.m_calendar.MeetingFragment">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/linearL">
+
+        <TextView  style="@style/MediumSizeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/status"
+            android:id="@+id/status" />
+
+        <TextView style="@style/LargeSizeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name of meeting"
+            android:id="@+id/meetingName" />
+
+        <TextView style="@style/MediumSizeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/organizedBy"
+            android:id="@+id/organizedBy" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView style="@style/CircleStyledTextView"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:text="@string/default_name"
+                android:id="@+id/name0" />
+
+            <TextView style="@style/CircleStyledTextView"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/default_name"
+                android:layout_marginLeft="5dp"
+                android:id="@+id/name1"
+                />
+
+            <TextView style="@style/CircleStyledTextView"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:text="@string/default_name"
+                android:id="@+id/name2" />
+
+            <TextView style="@style/CircleStyledTextView"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:text="@string/default_name"
+                android:id="@+id/name3" />
+
+            <TextView style="@style/CircleStyledTextView"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:text="@string/default_name"
+                android:id="@+id/name4" />
+
+            <TextView style="@style/SmallButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/more_participants"
+                android:id="@+id/allParticipantsTextView"
+                android:layout_gravity="center_vertical" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>
