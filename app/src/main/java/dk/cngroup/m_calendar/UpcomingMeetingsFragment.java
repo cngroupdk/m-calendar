@@ -15,7 +15,9 @@ import org.androidannotations.annotations.ViewById;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
-import java.util.List;
+
+import dk.cngroup.m_calendar.layout.MeetingAdapter;
+
 
 @EFragment(R.layout.fragment_upcoming_meetings)
 public class UpcomingMeetingsFragment extends Fragment {
@@ -28,6 +30,7 @@ public class UpcomingMeetingsFragment extends Fragment {
 
     @AfterViews
     public void init() {
+
         Meeting[] meetings = {
                 new Meeting(new Date(), new Date(),
                         "Info meeting", "Aaaen Westh Nielsen",

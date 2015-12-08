@@ -12,9 +12,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.Bean;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
+
+import java.util.Date;
 
 @EActivity(R.layout.activity_main)
 public class MainActivity extends AppCompatActivity {
@@ -27,13 +30,18 @@ public class MainActivity extends AppCompatActivity {
     @AfterViews
     public void fillMeeting(){
         if (isBooked){
-            mainLayout.setBackground(getResources().getDrawable(R.drawable.meetingroomred));
+            mainLayout.setBackground(getResources().getDrawable(R.drawable.unavailable));
         }
         else {
-            mainLayout.setBackground(getResources().getDrawable(R.drawable.meetingroomgreen2));
+            mainLayout.setBackground(getResources().getDrawable(R.drawable.available));
         }
 
+
     }
+
+    @Bean
+    CalendarHelper calendarHelper;
+
 
 
 

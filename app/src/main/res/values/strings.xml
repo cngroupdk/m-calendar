@@ -1,16 +1,13 @@
 <resources>
     <string name="app_name">M-Calendar</string>
     <string name="default_name">-</string>
-
     <string name="okButton">OK</string>
     <string name="organizedBy">Organized by: %1$s </string>
-    <string name="status"><u>Status: booked</u></string>
     <string name="meeting_name">name of meeting</string>
     <string name="more_participants"><u>and %1$s more</u></string>
+    <string name="status"><u>Status: booked</u></string>
     <string name="upcomingMeetings">Upcoming meetings: </string>
     <string name="time">%1$s</string>
 
-<!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

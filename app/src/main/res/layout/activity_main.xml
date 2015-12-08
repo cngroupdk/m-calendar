@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:padding="@dimen/activity_horizontal_margin"
     tools:context="dk.cngroup.m_calendar.MainActivity"
-    android:background="@drawable/meetingroomred"
     android:weightSum="5"
     android:orientation="horizontal">
 

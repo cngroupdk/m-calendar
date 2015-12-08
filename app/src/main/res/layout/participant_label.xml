@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
+    android:layout_width="@dimen/participant_label_size"
+    android:layout_height="@dimen/participant_label_size"
+    android:layout_marginRight="@dimen/participant_label_right_margin"
+    style="@style/CircleStyledTextView"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+</TextView>

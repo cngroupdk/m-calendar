@@ -35,7 +35,7 @@ public class TimeDateFragment extends Fragment {
         Timer timer = new Timer();
         final TimerTask task = new TimerTask() {
             public void run() {
-                myHandler.handleMessage(new Message());
+                myHandler.handleMessage(null);
                 final Runnable myRunnable = new Runnable() {
                     public void run() {
                         dateTv.setText(myHandler.getDate());
@@ -52,12 +52,12 @@ public class TimeDateFragment extends Fragment {
     private static class MyHandler extends Handler {
         private String date;
         private String time;
+        SimpleDateFormat dateFormat = new SimpleDateFormat("EEEE dd MM yyyy\r");
+        SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
 
         @Override
         public void handleMessage(Message msg) {
             long mTimeMilisec = System.currentTimeMillis();
-            SimpleDateFormat dateFormat = new SimpleDateFormat("EEEE dd MM yyyy\r");
-            SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
             Date resultdate = new Date(mTimeMilisec);
             date = dateFormat.format(resultdate);
             time = timeFormat.format(resultdate);
