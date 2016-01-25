@@ -5,7 +5,10 @@ import android.content.Context;
 import android.graphics.Paint;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import org.androidannotations.annotations.AfterViews;
@@ -71,7 +74,7 @@ public class MeetingFragment extends Fragment {
         if (NUMBER_OF_DISPLAED_LABELS < numberOfParticipants){
             TextView  label = new TextView(context,null,R.style.SmallButton);
             label.setText(textMoreParticipants);
-            label.setPaintFlags(label.getPaintFlags() |  Paint.UNDERLINE_TEXT_FLAG);
+            label.setPaintFlags(label.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
             label.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -81,6 +84,7 @@ public class MeetingFragment extends Fragment {
             horizontalLayout.addView(label);
         }
     }
+
 }
 
 

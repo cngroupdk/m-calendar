@@ -3,4 +3,8 @@
          (such as screen margins) for screens with more than 820dp of available width. This
          would include 7" and 10" devices in landscape (~960dp and ~1280dp respectively). -->
     <dimen name="activity_horizontal_margin">64dp</dimen>
+    <dimen name="large_text_size">30sp</dimen>
+    <dimen name="text_view_status_text_size">40sp</dimen>
+    <dimen name="upcoming_meeting_row_height">60dp</dimen>
+    <dimen name="upcoming_meeting_label_size">65dp</dimen>
 </resources>

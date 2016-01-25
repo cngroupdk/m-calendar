@@ -1,6 +1,13 @@
 <resources>
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-    <dimen name="participant_label_size">45dp</dimen>
+    <dimen name="participant_label_size">92dp</dimen>
     <dimen name="participant_label_right_margin">5dp</dimen>
+    <dimen name="upcoming_meeting_row_height">30dp</dimen>
+    <dimen name="upcoming_meeting_label_size">84dp</dimen>
+    <dimen name="upcoming_meetings_text_size">35sp</dimen>
+    <dimen name="large_text_size">35sp</dimen>
+    <dimen name="time_text_size">50sp</dimen>
+    <dimen name="text_view_status_text_size">40sp</dimen>
+
 </resources>

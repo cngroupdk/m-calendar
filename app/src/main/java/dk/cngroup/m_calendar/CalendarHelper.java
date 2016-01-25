@@ -13,6 +13,8 @@ import org.androidannotations.annotations.AfterInject;
 import org.androidannotations.annotations.EBean;
 import org.androidannotations.annotations.RootContext;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -22,27 +24,27 @@ public class CalendarHelper{
     @RootContext
     Context mContext;
 
-    public final String[] FIELDS = { CalendarContract.Calendars.NAME,
+    public static String[] FIELDS = { CalendarContract.Calendars.NAME,
             CalendarContract.Calendars.CALENDAR_DISPLAY_NAME,
             CalendarContract.Calendars.CALENDAR_COLOR,
             CalendarContract.Calendars.VISIBLE,
             CalendarContract.Calendars._ID
     };
+    public static Uri CALENDAR_URI = Uri.parse("content://com.android.calendar/calendars");
 
-    public final Uri CALENDAR_URI = Uri.parse("content://com.android.calendar/calendars");
 
-
-    ContentResolver contentResolver;
-    Set<String> calendars = new HashSet<String>();
+    public static ContentResolver contentResolver;
+    public static Set<String> calendars = new HashSet<String>();
+    public static Set<String> calendarsIDs = new HashSet<String>();
 
     @AfterInject
     public void init() {
         contentResolver = mContext.getContentResolver();
-        Log.e("CALENDAR",getCalendarsName().toString());
-        getCalendarEvent();
+        Log.e("CALENDAR",getCalendarsIDs().toString());
+        //getCalendarEvent();
     }
 
-    public Set<String> getCalendarsName() {
+    public static Set<String> getCalendarsIDs() {
         Cursor cursor = contentResolver.query(CALENDAR_URI, FIELDS, null, null, null);
         try {
             if(cursor.getCount() > 0) {
@@ -52,16 +54,42 @@ public class CalendarHelper{
                     String color = cursor.getString(cursor.getColumnIndex(CalendarContract.Calendars.CALENDAR_COLOR));
                     Boolean selected = !cursor.getString(3).equals("0");
                     String id = cursor.getString(4);
-
                     calendars.add(displayName);
+                    calendarsIDs.add(id);
                 }
             }
         } catch (AssertionError ex) {
+        }
+
+        cursor.moveToFirst();
+        // fetching calendars name
+        String CNames[] = new String[cursor.getCount()];
+
+        // fetching calendars id
+        HashSet <String> nameOfEvent = new HashSet<String>();
+        nameOfEvent.clear();
+        /*startDates.clear();
+        endDates.clear();
+        descriptions.clear();*/
+        for (int i = 0; i < CNames.length; i++) {
+
+            nameOfEvent.add(cursor.getString(1));
+            /*startDates.add(getDate(Long.parseLong(cursor.getString(3))));
+            endDates.add(getDate(Long.parseLong(cursor.getString(4))));
+            descriptions.add(cursor.getString(2));*/
+            CNames[i] = cursor.getString(1);
+            final String begin = getDate(cursor.getLong(1));
+            Log.e("BEGIN DATE",begin);
+            cursor.moveToNext();
 
         }
-        return calendars;
+        Log.e("NAME OF EVENT",nameOfEvent.toString());
+
+
+        return calendarsIDs;
     }
-    
+
+
 
     public final Uri CALENDAR_EVENT_URI = Uri.parse("content://com.android.calendar/calendars/events");
     public void getCalendarEvent(){
@@ -78,7 +106,8 @@ public class CalendarHelper{
 
         while (eventCursor.moveToNext()) {
             final String title = eventCursor.getString(0);
-            final Date begin = new Date(eventCursor.getLong(1));
+            final String begin = getDate(eventCursor.getLong(1));
+            Log.e("BEGIN DATE",begin);
             final Date end = new Date(eventCursor.getLong(2));
             final Boolean allDay = !eventCursor.getString(3).equals("0");
 
@@ -100,6 +129,17 @@ public class CalendarHelper{
         //    }
         Log.e("event","EVenT: ");
     }
+
+
+    public static String getDate(long milliSeconds) {
+        SimpleDateFormat formatter = new SimpleDateFormat(
+                "dd/MM/yyyy hh:mm:ss a");
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(milliSeconds);
+        return formatter.format(calendar.getTime());
+    }
+
+
 
 
 }

@@ -13,13 +13,13 @@
             android:text="@string/status"
             android:id="@+id/status" />
 
-        <TextView style="@style/LargeSizeTextView"
+        <TextView style="@style/CurrentMeeting"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Name of meeting"
             android:id="@+id/meetingName" />
 
-        <TextView style="@style/MediumSizeTextView"
+        <TextView style="@style/CurrentMeeting"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/organizedBy"

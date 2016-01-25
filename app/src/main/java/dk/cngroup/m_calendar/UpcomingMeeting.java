@@ -27,4 +27,6 @@ public class UpcomingMeeting extends LinearLayout{
         meetingName.setText(meeting.getName());
         meetingTime.setText(meeting.getMeetingTime());
     }
+
+
 }

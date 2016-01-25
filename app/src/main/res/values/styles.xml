@@ -13,6 +13,7 @@
         <item name="android:background">@drawable/circle</item>
         <item name="android:gravity">center_vertical|center_horizontal</item>
         <item name="android:layout_gravity">center</item>
+        <item name="android:textSize">22sp</item>
         <item name="android:textColor">@color/labels</item>
         <item name="android:layout_marginRight">5dp</item>
         <item name="android:textAllCaps">true</item>
@@ -21,19 +22,60 @@
     <style name="MediumSizeTextView" parent="@android:style/TextAppearance.Medium">
         <item name="android:textColor">@color/white</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:textSize">30sp</item>
     </style>
 
-    <style name="SmallSizeTextView" parent="@android:style/TextAppearance.Small">
+    <style name="CurrentMeeting" parent="@android:style/TextAppearance.Medium">
         <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">24sp</item>
     </style>
 
-    <style name="LargeSizeTextView" parent="@android:style/TextAppearance.Medium">
-        <item name="android:textColor">@color/white</item>
+    <style name="UpcomingMeetingText" parent="@android:style/TextAppearance.Large">
+        <item name="android:textColor">@color/cnLightBlue</item>
+    </style>
+
+    <style name="UpcomingMeetingTime" parent="UpcomingMeetingText">
+        <item name="android:textSize">38sp</item>
+    </style>
+
+    <style name="UpcomingMeetingName" parent="UpcomingMeetingText">
+        <item name="android:textSize">28sp</item>
+    </style>
+
+    <style name="TimeDateFragment" parent="@android:style/TextAppearance.Medium">
+        <item name="android:textColor">@color/cnDarkBlue</item>
+        <item name="android:textSize">@dimen/large_text_size</item>
+        <item name="android:layout_gravity">end</item>
+    </style>
+
+    <style name="TimeDateFragmentTime" parent="TimeDateFragment">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/time_text_size</item>
     </style>
 
     <style name="SmallButton" parent="@android:style/TextAppearance.Small">
         <item name="android:textColor">@color/cnLightBlue</item>
         <item name="android:textStyle">bold</item>
         <item name="android:layout_gravity">center_vertical</item>
+    </style>
+
+    <style name="StatusTextView" parent="@android:style/TextAppearance.Large">
+        <item name="android:textColor">@color/cnDarkBlue</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+        <item name="android:paddingTop">25dp</item>
+        <item name="android:paddingBottom">25dp</item>
+        <item name="android:textSize">@dimen/text_view_status_text_size</item>
+    </style>
+
+    <style name="StatusTextViewFree" parent="StatusTextView">
+        <item name="android:background">@color/cnLightBlue</item>
+        <item name="android:text">@string/meeting_room_status_free</item>
+    </style>
+
+    <style name="StatusTextViewBooked" parent="StatusTextView">
+        <item name="android:background">@color/cnRed</item>
+        <item name="android:text">@string/meeting_room_status_booked</item>
     </style>
 </resources>

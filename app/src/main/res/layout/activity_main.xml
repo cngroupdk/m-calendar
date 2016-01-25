@@ -4,55 +4,76 @@
     android:id="@+id/mainLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/activity_horizontal_margin"
+
     tools:context="dk.cngroup.m_calendar.MainActivity"
     android:weightSum="5"
     android:orientation="horizontal">
 
 
-    <GridLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="2"
-        android:rowCount="3"
-        android:columnCount="1">
-
-        <include
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            layout="@layout/top_pane"
-            android:layout_column="0"
-            android:layout_row="0" />
-
-        <fragment
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:name="dk.cngroup.m_calendar.MeetingFragment_"
-            android:id="@+id/fragment2"
-            android:layout_row="2"
-            android:layout_column="0" />
-
-    </GridLayout>
-
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="right"
-        android:layout_weight="3"
-        android:layout_gravity="right">
+        android:weightSum="1"
+      >
 
-        <fragment
+        <GridLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:name="dk.cngroup.m_calendar.TimeDateFragment_"
-            android:id="@+id/fragment" />
+            android:rowCount="1"
+            android:padding="@dimen/activity_horizontal_margin"
+            android:columnCount="2"
+            android:paddingBottom="25dp">
 
-        <fragment
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageView2"
+                android:src="@drawable/logo2"
+                android:layout_gravity="left|top" />
+
+            <fragment
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:name="dk.cngroup.m_calendar.TimeDateFragment_"
+                android:id="@+id/fragment"
+                android:layout_gravity="right"
+                android:layout_row="0" />
+        </GridLayout>
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="4"
+            android:padding="@dimen/activity_horizontal_margin"
+            android:layout_weight="0.98">
+
+            <fragment
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="4"
+                android:name="dk.cngroup.m_calendar.UpcomingMeetingsFragment_"
+                android:id="@+id/fragment3"
+                android:layout_gravity="top"
+                android:layout_weight="3" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:name="dk.cngroup.m_calendar.UpcomingMeetingsFragment_"
-            android:id="@+id/fragment3" />
+            android:layout_gravity="center_horizontal">
+
+            <TextView style="@style/StatusTextViewFree"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/roomStatus"
+
+                />
+        </LinearLayout>
 
     </LinearLayout>
 

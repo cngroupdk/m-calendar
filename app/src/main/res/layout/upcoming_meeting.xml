@@ -1,29 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal" android:layout_width="match_parent"
+    android:orientation="horizontal" android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
-    <TextView style="@style/CircleStyledTextView"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:text="@string/default_name"
-        android:id="@+id/organizator" />
-
     <LinearLayout
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView style="@style/SmallSizeTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/time"
-            android:id="@+id/meetingTime" />
+        <TextView style="@style/CircleStyledTextView"
+            android:layout_width="@dimen/participant_label_size"
+            android:layout_height="@dimen/participant_label_size"
+            android:text="@string/default_name"
+            android:id="@+id/organizator" />
 
-        <TextView style="@style/SmallSizeTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/meeting_name"
-            android:id="@+id/nameOfMeeting" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView style="@style/UpcomingMeetingTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/time"
+                android:id="@+id/meetingTime" />
+
+            <TextView style="@style/UpcomingMeetingName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/meeting_name"
+                android:id="@+id/nameOfMeeting"
+           />
+        </LinearLayout>
     </LinearLayout>
+
 </LinearLayout>

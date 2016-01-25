@@ -8,4 +8,7 @@
     <size
         android:width="40dp"
         android:height="40dp"/>
+
+    <stroke android:width="2dp"
+        android:color="@color/cnLightBlue"/>
 </shape>
