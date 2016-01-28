@@ -40,8 +40,9 @@ public class CalendarHelper{
     @AfterInject
     public void init() {
         contentResolver = mContext.getContentResolver();
-        Log.e("CALENDAR",getCalendarsIDs().toString());
+        //Log.e("CALENDAR",getCalendarsIDs().toString());
         //getCalendarEvent();
+        //CalendarReader2.getEventsOfToday(contentResolver,CALENDAR_URI);
     }
 
     public static Set<String> getCalendarsIDs() {

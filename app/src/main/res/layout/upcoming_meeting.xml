@@ -12,7 +12,7 @@
             android:layout_width="@dimen/participant_label_size"
             android:layout_height="@dimen/participant_label_size"
             android:text="@string/default_name"
-            android:id="@+id/organizator" />
+            android:id="@+id/organizer" />
 
         <LinearLayout
             android:orientation="vertical"

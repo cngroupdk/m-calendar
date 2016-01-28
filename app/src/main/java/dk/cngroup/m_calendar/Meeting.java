@@ -3,21 +3,24 @@ package dk.cngroup.m_calendar;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 public class Meeting {
-    private Date fromDate;
-    private Date toDate;
+    private GregorianCalendar fromTime;
+    private GregorianCalendar toTime;
     private String name;
     private String organizator;
     private ArrayList<String> participants = new ArrayList<String>();
 
-    public Meeting(Date fromDate, Date toDate, String name, String organizator, ArrayList<String> participants) {
-        this.fromDate = fromDate;
-        this.toDate = toDate;
+    public Meeting(GregorianCalendar fromTime, GregorianCalendar toTime, String name, String organizator, ArrayList<String> participants) {
+        this.fromTime = fromTime;
+        this.toTime = toTime;
         this.name = name;
         this.organizator = organizator;
         this.participants = participants;
     }
+
+    public Meeting(){}
 
     public int getNumberOfParticipants(){
         return participants.size();
@@ -48,30 +51,34 @@ public class Meeting {
         this.participants = participants;
     }
 
-    public Date getToDate() {
-        return toDate;
+    public void addParticipant(String name){
+        this.participants.add(name);
     }
 
-    public void setToDate(Date toDate) {
-        this.toDate = toDate;
+    public GregorianCalendar getToTime() {
+        return toTime;
     }
 
-    public Date getFromDate() {
-        return fromDate;
+    public GregorianCalendar getFromTime() {
+        return fromTime;
     }
 
-    public void setFromDate(Date fromDate) {
-        this.fromDate = fromDate;
+    public void setFromTime(GregorianCalendar fromTime) {
+        this.fromTime = fromTime;
+    }
+
+    public void setToTime(GregorianCalendar toTime) {
+        this.toTime = toTime;
     }
 
     public String getMeetingTime(){
-        return formatTime(fromDate) + " - " + formatTime(toDate);
+        return formatTime(fromTime) + " - " + formatTime(toTime);
     }
 
-    public String formatTime(Date date){
-        String result = "";
-        SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
-        return timeFormat.format(date);
+    public String formatTime(GregorianCalendar cg){
+        int minute =  cg.get(GregorianCalendar.MINUTE);
+        String minutes = (minute < 9 ) ?  "0" + minute+ "" : minute + "";
+        return cg.get(GregorianCalendar.HOUR_OF_DAY)+ "" + ":" + minutes ;
     }
 
 }

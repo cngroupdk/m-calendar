@@ -6,8 +6,8 @@
     <solid
         android:color="@color/cnDarkBlue"/>
     <size
-        android:width="64dp"
-        android:height="64dp"/>
+        android:width="50dp"
+        android:height="50dp"/>
 
     <stroke android:width="2dp"
         android:color="@color/cnLightBlue"/>

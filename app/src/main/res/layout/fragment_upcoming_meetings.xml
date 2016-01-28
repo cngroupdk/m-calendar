@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:text="@string/upcomingMeetings"
             android:textSize="@dimen/upcoming_meetings_text_size"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="10dp"
             android:textColor="@color/cnLightBlue"
             android:id="@+id/textView"
             android:gravity="center_horizontal" />
@@ -32,8 +32,8 @@
             android:layout_gravity="center_horizontal" />
 
         <ListView
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginBottom="7dp"
             android:layout_width="match_parent"
             android:layout_height="450dp"
             android:textColor="@color/labels"

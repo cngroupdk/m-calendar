@@ -15,7 +15,7 @@ public class UpcomingMeeting extends LinearLayout{
     @ViewById(R.id.nameOfMeeting)
     TextView meetingName;
 
-    @ViewById(R.id.organizator)
+    @ViewById(R.id.organizer)
     TextView organizator;
 
     public UpcomingMeeting(Context context) {

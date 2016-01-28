@@ -10,4 +10,5 @@
     <color name="labels">#E0F5F9</color>
     <color name="white">#ffffff</color>
     <color name="testing">#ff9600</color>
+    <color name="meeting_fragment_background">#66073453</color>
 </resources>

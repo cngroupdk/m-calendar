@@ -12,6 +12,7 @@ import dk.cngroup.m_calendar.R;
 import dk.cngroup.m_calendar.UpcomingMeeting;
 import dk.cngroup.m_calendar.UpcomingMeeting_;
 
+
 public class MeetingAdapter extends ArrayAdapter<Meeting> {
 
     Context mContext;
@@ -22,7 +23,7 @@ public class MeetingAdapter extends ArrayAdapter<Meeting> {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+   public View getView(int position, View convertView, ViewGroup parent) {
         UpcomingMeeting upcomingMeeting;
         if(convertView == null){
             upcomingMeeting = UpcomingMeeting_.build(mContext);

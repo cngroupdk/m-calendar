@@ -224,9 +224,9 @@ public class CalendarReader2
             local_uri = Uri.parse("content://com.android.calendar/events");
         }
         Calendar calendar = Calendar.getInstance();
-        calendar.set(2016, Calendar.JANUARY, 13, 0, 0, 0);
+        calendar.set(2016, Calendar.JANUARY, 26, 8, 30, 0);
         long startDay = calendar.getTimeInMillis();
-        calendar.set(2016, Calendar.JANUARY, 13, 23, 59, 59);
+        calendar.set(2016, Calendar.JANUARY, 26, 23, 59, 59);
         long endDay = calendar.getTimeInMillis();
 
         String[] projection = new String[]{BaseColumns._ID, CalendarContract.Events.TITLE, CalendarContract.Events.DTSTART};
@@ -240,7 +240,7 @@ public class CalendarReader2
         Log.e("EVENT OF TODAY", title);
         while (cursor.moveToNext()) {
             String title2 = cursor.getString(1);
-            Log.e("EVENT OF TODAY", title);
+            Log.e("EVENT OF TODAY", title2);
         }
 
 

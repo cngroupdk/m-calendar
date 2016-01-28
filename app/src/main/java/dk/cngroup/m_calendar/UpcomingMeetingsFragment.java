@@ -1,6 +1,7 @@
 package dk.cngroup.m_calendar;
 
 import android.app.Fragment;
+import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,7 +38,7 @@ public class UpcomingMeetingsFragment extends Fragment {
     @AfterViews
     public void init() {
 
-        Meeting[] meetings = {
+        /*Meeting[] meetings = {
                 new Meeting(new Date(), new Date(),
                         "Info meeting", "Michal Siirica",
                         new ArrayList<String>(Arrays.asList(new String[]{"Stien Westh Nielsen", "Jan Cerny", "Milan Piskla"}))),
@@ -63,11 +64,21 @@ public class UpcomingMeetingsFragment extends Fragment {
                         "Info meeting ", "Jan Cerny",
                         new ArrayList<String>(Arrays.asList(new String[]{"Stien Westh Nielsen", "Jan Cerny", "Milan Piskla"}))),
 
-        };
+        };*/
+        //ArrayList<Meeting> todayMeetings =new ArrayList<Meeting>();
+        //DataParser.readFile(getActivity().getBaseContext(),todayMeetings);
 
-        ListAdapter listAdapter = new MeetingAdapter(getActivity().getBaseContext(),Arrays.asList(meetings));
+        ArrayList<Meeting> todayMeetings = MainActivity_.getTodayMeetings(getActivity().getBaseContext());
+       // ArrayList<Meeting> todayMeetings = DataParser.getTodayMeetings(getActivity().getBaseContext());
+
+       // ArrayList<Meeting> todayMeetings = MainActivity_.getTodayMeetings(getActivity().getBaseContext());
+        Meeting[] meetings1   = new Meeting[todayMeetings.size()];
+        meetings1 = todayMeetings.toArray(meetings1);
+
+        ListAdapter listAdapter = new MeetingAdapter(getActivity().getBaseContext(),Arrays.asList(meetings1));
         listview.setAdapter(listAdapter);
         setListViewHeightBasedOnChildren(listview);
+
     }
 
 
@@ -97,6 +108,7 @@ public class UpcomingMeetingsFragment extends Fragment {
         listView.requestLayout();
 
     }
+
 
 
 }

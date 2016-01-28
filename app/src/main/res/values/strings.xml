@@ -2,7 +2,7 @@
     <string name="app_name">M-Calendar</string>
     <string name="default_name">-</string>
     <string name="okButton">OK</string>
-    <string name="organizedBy">Organized by: %1$s </string>
+    <string name="organizedBy"> %1$s </string>
     <string name="meeting_name">name of meeting</string>
     <string name="more_participants"><u>and %1$s more</u></string>
     <string name="status"><u>Status: booked</u></string>
