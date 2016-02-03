@@ -7,8 +7,6 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.GregorianCalendar;
 
 public class DataParser {
@@ -16,11 +14,10 @@ public class DataParser {
 
     public static void readFile(Context context, ArrayList<Meeting> meetings){
         InputStream is;
-        String organizer, meetingTimeStartStr, meetingTimeEndStr, meetingNameStr;
-
+        GregorianCalendar now = new GregorianCalendar();
 
         try {
-            is  = context.getResources().openRawResource(R.raw.calendar20);
+            is  = context.getResources().openRawResource(R.raw.calendar1);
             BufferedReader dataIO = new BufferedReader(new InputStreamReader(is));
             String strLine = dataIO.readLine();
             while (strLine != null) {
@@ -30,17 +27,15 @@ public class DataParser {
                     Log.e("FOUND", "BEGIN:VEVENT START");
                     while (!strLine.trim().equals("END:VEVENT")){
                         if (strLine.startsWith("ORGANIZER")){
-                            organizer = getNameFromString(strLine);
-                            meeting.setOrganizator(organizer);
+                            meeting.setOrganizator(getNameFromString(strLine));
                         }
 
                         else if (strLine.startsWith("ATTENDEE")){
                             meeting.addParticipant(getNameFromString(strLine));
                         }
 
-                        else if (strLine.startsWith("SUMMARY;LANGUAGE=cs:")) {
-                            meetingNameStr = strLine.substring("SUMMARY;LANGUAGE=cs:".length(),strLine.length());
-                            meeting.setName(meetingNameStr);
+                        else if (strLine.startsWith("SUMMARY")) {
+                            meeting.setName(getMeetingName(strLine));
                         }
 
                         else if (strLine.startsWith("DTSTART")) {
@@ -51,14 +46,11 @@ public class DataParser {
                             meeting.setToTime(getCalendar(strLine));
                         }
 
-
-
                         strLine = dataIO.readLine();
                     }
-
-                    //meeting.setFromTime(new GregorianCalendar());
-                    //meeting.setToTime(new GregorianCalendar());
-                    meetings.add(meeting);
+                    if (meeting.getToTime().compareTo(now) > 0) {
+                        meetings.add(meeting);
+                    }
                 }
             }
 
@@ -73,13 +65,18 @@ public class DataParser {
     public static ArrayList<Meeting> getTodayMeetings(Context context){
         ArrayList<Meeting> meetings = new ArrayList<Meeting>();
         readFile(context, meetings);
-        Log.e("SIZE ",meetings.size()+"");
         return meetings;
 
 }
 
     private static String getNameFromString(String str){
         String[] temp = str.split("\"");
+        return temp[1];
+
+    }
+
+    private static String getMeetingName(String str){
+        String[] temp = str.split(":");
         return temp[1];
 
     }
@@ -93,15 +90,13 @@ public class DataParser {
         String time = getTime(str).trim();
         GregorianCalendar gregorianCalendar = new GregorianCalendar();
         gregorianCalendar.set(
-                Integer.parseInt(time.substring(0, 4)),
-                Integer.parseInt(time.substring(4, 6)),
-                Integer.parseInt(time.substring(6, 8)),
-                Integer.parseInt(time.substring(9, 11)),
-                Integer.parseInt(time.substring(11, 13)),
-                Integer.parseInt(time.substring(13))
+                Integer.parseInt(time.substring(0, 4)), // year
+                Integer.parseInt(time.substring(4, 6))-1, // month gregorian calendars months 0 - 11, outlook 1 - 12
+                Integer.parseInt(time.substring(6, 8)), // day
+                Integer.parseInt(time.substring(9, 11)), // hour
+                Integer.parseInt(time.substring(11, 13)), //minutes
+                Integer.parseInt(time.substring(13)) // secs
         );
-
-        Log.e("HOUR ", "" + gregorianCalendar.get(GregorianCalendar.HOUR_OF_DAY));
         return  gregorianCalendar;
 
     }

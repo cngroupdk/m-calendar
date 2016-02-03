@@ -18,7 +18,9 @@ import org.androidannotations.annotations.ViewById;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 import dk.cngroup.m_calendar.layout.MeetingAdapter;
 
@@ -37,48 +39,32 @@ public class UpcomingMeetingsFragment extends Fragment {
 
     @AfterViews
     public void init() {
+        Log.e("LIFE ", "UPC FRAG INIT");
+        ArrayList<Meeting> todayMeetings = MainActivity_.getCurrentTodayMeetings();
+        if (todayMeetings.size() == 0) {
+            Log.e("C. STATE","BERIEM NOVE ZO SUBORA");
 
-        /*Meeting[] meetings = {
-                new Meeting(new Date(), new Date(),
-                        "Info meeting", "Michal Siirica",
-                        new ArrayList<String>(Arrays.asList(new String[]{"Stien Westh Nielsen", "Jan Cerny", "Milan Piskla"}))),
-                new Meeting(new Date(), new Date(),
-                "Production Board Meeting", "Jon Bon Jovi",
-                new ArrayList<String>(Arrays.asList(new String[]{"Stien Westh Nielsen", "Jan Cerny", "Milan Piskla"}))),
-                new Meeting(new Date(), new Date(),
-                        "Interflex/BMW - Workshop", "Ringo Star",
-                        new ArrayList<String>(Arrays.asList(new String[]{"Stien Westh Nielsen", "Jan Cerny", "Milan Piskla"}))),
-                new Meeting(new Date(), new Date(),
-                        "Nemcina", "Irie Revoltes",
-                        new ArrayList<String>(Arrays.asList(new String[]{"Stien Westh Nielsen", "Jan Cerny", "Milan Piskla"}))),
-                new Meeting(new Date(), new Date(),
-                        "Svedcina", "Sting",
-                        new ArrayList<String>(Arrays.asList(new String[]{"Stien Westh Nielsen", "Jan Cerny", "Milan Piskla"}))),
-                new Meeting(new Date(), new Date(),
-                        "Workshop", "Jaromir Kohlicek",
-                        new ArrayList<String>(Arrays.asList(new String[]{"Stien Westh Nielsen", "Jan Cerny", "Milan Piskla"}))),
-                new Meeting(new Date(), new Date(),
-                        "Management Meeting", "Stien Westh Nielsen",
-                        new ArrayList<String>(Arrays.asList(new String[]{"Stien Westh Nielsen", "Jan Cerny", "Milan Piskla"}))),
-                new Meeting(new Date(), new Date(),
-                        "Info meeting ", "Jan Cerny",
-                        new ArrayList<String>(Arrays.asList(new String[]{"Stien Westh Nielsen", "Jan Cerny", "Milan Piskla"}))),
+            todayMeetings = MainActivity_.getTodayMeetings(getActivity().getBaseContext());
+        }
 
-        };*/
-        //ArrayList<Meeting> todayMeetings =new ArrayList<Meeting>();
-        //DataParser.readFile(getActivity().getBaseContext(),todayMeetings);
+        Meeting currentMeeting = MainActivity_.getCurrentMeeting();
+        if (todayMeetings.size() != 0 && currentMeeting != null && MainActivity_.isBooked()) {
+            Meeting firstMeeting = todayMeetings.get(0);
+           // if (firstMeeting.compareTo(currentMeeting) == 0) {
+            if (firstMeeting.isSame(currentMeeting)) {
+                Log.e("LIFE ", "UPC REMOVING FIRST");
+                todayMeetings.remove(0);
+            }
+        }
 
-        ArrayList<Meeting> todayMeetings = MainActivity_.getTodayMeetings(getActivity().getBaseContext());
-       // ArrayList<Meeting> todayMeetings = DataParser.getTodayMeetings(getActivity().getBaseContext());
+        // todayMeetings = MainActivity_.getTodayMeetings(getActivity().getBaseContext());
 
-       // ArrayList<Meeting> todayMeetings = MainActivity_.getTodayMeetings(getActivity().getBaseContext());
-        Meeting[] meetings1   = new Meeting[todayMeetings.size()];
+        Meeting[] meetings1 = new Meeting[todayMeetings.size()];
         meetings1 = todayMeetings.toArray(meetings1);
 
-        ListAdapter listAdapter = new MeetingAdapter(getActivity().getBaseContext(),Arrays.asList(meetings1));
+        ListAdapter listAdapter = new MeetingAdapter(getActivity().getBaseContext(), Arrays.asList(meetings1));
         listview.setAdapter(listAdapter);
         setListViewHeightBasedOnChildren(listview);
-
     }
 
 
@@ -108,6 +94,8 @@ public class UpcomingMeetingsFragment extends Fragment {
         listView.requestLayout();
 
     }
+
+
 
 
 

@@ -23,7 +23,9 @@ public class UpcomingMeeting extends LinearLayout{
     }
 
     public void initUpcomingMeeting(Meeting meeting){
-        organizator.setText(meeting.getOrganizator().substring(0, 3));
+        if (meeting.getOrganizator().length() > 3) {
+            organizator.setText(meeting.getOrganizator().substring(0, 3));
+        }
         meetingName.setText(meeting.getName());
         meetingTime.setText(meeting.getMeetingTime());
     }

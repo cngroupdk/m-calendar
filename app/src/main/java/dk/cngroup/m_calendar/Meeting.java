@@ -1,15 +1,13 @@
 package dk.cngroup.m_calendar;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.GregorianCalendar;
 
-public class Meeting {
+public class Meeting implements Comparable<Meeting>{
     private GregorianCalendar fromTime;
     private GregorianCalendar toTime;
-    private String name;
-    private String organizator;
+    private String name = "";
+    private String organizator = "";
     private ArrayList<String> participants = new ArrayList<String>();
 
     public Meeting(GregorianCalendar fromTime, GregorianCalendar toTime, String name, String organizator, ArrayList<String> participants) {
@@ -81,4 +79,21 @@ public class Meeting {
         return cg.get(GregorianCalendar.HOUR_OF_DAY)+ "" + ":" + minutes ;
     }
 
+    @Override
+    public String toString() {
+        return "Meeting{" +
+                "name='" + name + '\'' +
+                '}';
+    }
+
+    @Override
+    public int compareTo(Meeting another) {
+        return getFromTime().compareTo(another.getFromTime());
+    }
+
+    public boolean isSame(Meeting another){
+        return this.getName().equals(another.getName()) && this.getOrganizator().equals(another.getOrganizator()) && (this.getFromTime().compareTo(another.getFromTime()) == 0);
+    }
 }
+
+
