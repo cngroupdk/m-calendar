@@ -67,13 +67,15 @@ public class MainActivity extends AppCompatActivity {
     @Bean
     CalendarHelper calendarHelper;
 
-    public static ArrayList<Meeting> todayMeetings = new ArrayList<Meeting>();
+    public static ArrayList<Meeting> todayMeetings = null;
     public static Meeting currentMeeting = null;
 
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @AfterViews
     public void fillMeeting() {
+        /*Intent i = new Intent(this, RssfeedActivity_.class);
+        startActivity(i);*/
 
         if (todayMeetings.size() == 0 && currentMeeting == null){
             setFree();
@@ -93,11 +95,9 @@ public class MainActivity extends AppCompatActivity {
                             String cur =  (currentMeeting == null ) ? "null" : currentMeeting.toString();
                             Log.e("C. STATE","CURRENT " + cur);
 
-
-
-                            if (todayMeetings.size() == 0 /*&& currentMeeting == null*/){
-                                Log.e("LIFE ", "NULA todaysMeetings");
-                                if (!isMeetingTakingPlace(currentMeeting,now) || currentMeeting == null) {
+                            if (todayMeetings.size() == 0){
+                                Log.e("LIFE ", "todaysMeetings.size == 0");
+                                if (currentMeeting == null || !isMeetingTakingPlace(currentMeeting,now)) {
                                     setFree();
                                     currentMeeting = null;
                                 }
@@ -135,6 +135,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             };
             timer.scheduleAtFixedRate(task, initialDelay, period);
+
 
         }
 

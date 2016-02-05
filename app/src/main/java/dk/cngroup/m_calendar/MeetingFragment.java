@@ -59,7 +59,7 @@ public class MeetingFragment extends Fragment {
                 meetingParticipants.setText(textMoreParticipants);
             }
 
-            //String textOrganizator = getActivity().getBaseContext().getResources().getString(R.string.organizedBy, meeting.getOrganizator());
+            String textOrganizator = getActivity().getBaseContext().getResources().getString(R.string.organizedBy, meeting.getOrganizator());
             organizedBy.setText(meeting.getOrganizator());
             meetingName.setText(meeting.getName());
             meetingTime.setText(meeting.getMeetingTime());
@@ -70,7 +70,7 @@ public class MeetingFragment extends Fragment {
     void showAlert(){
         CharSequence[] items = participants.toArray(new CharSequence[participants.size()]);
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle("Attendees");
+        builder.setTitle(getActivity().getBaseContext().getResources().getString(R.string.attendees));
         builder.setItems(items, null);
         builder.setNeutralButton(R.string.okButton, null);
         AlertDialog alert = builder.create();

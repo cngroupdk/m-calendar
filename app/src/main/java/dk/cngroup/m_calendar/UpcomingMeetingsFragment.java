@@ -35,22 +35,23 @@ public class UpcomingMeetingsFragment extends Fragment {
     ScrollView scrollView;
 
     private static final int NUMBER_OF_DISPLAYED_MEETINGS = 3;
-    private static int HEIGHT_OF_ROW = 200;//R.dimen.upcoming_meeting_row_height; //when six = 126
+    private static int HEIGHT_OF_ROW = 200;
 
     @AfterViews
     public void init() {
         Log.e("LIFE ", "UPC FRAG INIT");
         ArrayList<Meeting> todayMeetings = MainActivity_.getCurrentTodayMeetings();
-        if (todayMeetings.size() == 0) {
-            Log.e("C. STATE","BERIEM NOVE ZO SUBORA");
+        if (todayMeetings == null) {
+            Log.e("C. STATE","LOADING NEW FROM FILE");
 
             todayMeetings = MainActivity_.getTodayMeetings(getActivity().getBaseContext());
+
+
         }
 
         Meeting currentMeeting = MainActivity_.getCurrentMeeting();
         if (todayMeetings.size() != 0 && currentMeeting != null && MainActivity_.isBooked()) {
             Meeting firstMeeting = todayMeetings.get(0);
-           // if (firstMeeting.compareTo(currentMeeting) == 0) {
             if (firstMeeting.isSame(currentMeeting)) {
                 Log.e("LIFE ", "UPC REMOVING FIRST");
                 todayMeetings.remove(0);
@@ -58,7 +59,7 @@ public class UpcomingMeetingsFragment extends Fragment {
         }
 
         // todayMeetings = MainActivity_.getTodayMeetings(getActivity().getBaseContext());
-
+        Log.e("C. STATE","SIZE "+ todayMeetings.size());
         Meeting[] meetings1 = new Meeting[todayMeetings.size()];
         meetings1 = todayMeetings.toArray(meetings1);
 

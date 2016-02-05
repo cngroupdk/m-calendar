@@ -1,16 +1,34 @@
 package dk.cngroup.m_calendar;
 
 import android.content.Context;
+import android.os.AsyncTask;
 import android.util.Log;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
 public class DataParser {
     public DataParser(){}
+
+    private static final String BEGIN_EVENT = "BEGIN:VEVENT";
+    private static final String END_EVENT = "END:VEVENT";
+    private static final String SUMMARY = "SUMMARY";
+    private static final String ORGANIZER = "ORGANIZER";
+    private static final String BEGIN_MEETING = "DTSTART";
+    private static final String END_MEETING= "DTEND";
+    private static final String ATTENDEE = "ATTENDEE";
+
+    private static String rssResult = "";
+
+    private static URL rssUrl;
+
+
 
     public static void readFile(Context context, ArrayList<Meeting> meetings){
         InputStream is;
@@ -22,27 +40,26 @@ public class DataParser {
             String strLine = dataIO.readLine();
             while (strLine != null) {
                 strLine = dataIO.readLine();
-                if (strLine.trim().equals("BEGIN:VEVENT")){
+                if (strLine.trim().equals(BEGIN_EVENT)){
                     Meeting meeting = new Meeting();
-                    Log.e("FOUND", "BEGIN:VEVENT START");
-                    while (!strLine.trim().equals("END:VEVENT")){
-                        if (strLine.startsWith("ORGANIZER")){
+                    while (!strLine.trim().equals(END_EVENT)){
+                        if (strLine.startsWith(ORGANIZER)){
                             meeting.setOrganizator(getNameFromString(strLine));
                         }
 
-                        else if (strLine.startsWith("ATTENDEE")){
+                        else if (strLine.startsWith(ATTENDEE)){
                             meeting.addParticipant(getNameFromString(strLine));
                         }
 
-                        else if (strLine.startsWith("SUMMARY")) {
+                        else if (strLine.startsWith(SUMMARY)) {
                             meeting.setName(getMeetingName(strLine));
                         }
 
-                        else if (strLine.startsWith("DTSTART")) {
+                        else if (strLine.startsWith(BEGIN_MEETING)) {
                            meeting.setFromTime(getCalendar(strLine));
                         }
 
-                        else if (strLine.startsWith("DTEND")) {
+                        else if (strLine.startsWith(END_MEETING)) {
                             meeting.setToTime(getCalendar(strLine));
                         }
 
@@ -100,4 +117,46 @@ public class DataParser {
         return  gregorianCalendar;
 
     }
+
+    private static String getCalendarFromUrl(){
+            Log.e("SERVICE", "init");
+
+            AsyncTask<Object, Void, String> t = new AsyncTask<Object, Void, String>() {
+                @Override
+                protected String doInBackground(Object... params) {
+                    try {
+                        Log.e("SERVICE", "do in Background");
+                        rssUrl = new URL("http://davinci.fmph.uniba.sk/~bachronikov2/testing/calendar1.ics");
+                        StringBuilder b = new StringBuilder();
+                        BufferedReader r = new BufferedReader(new InputStreamReader(rssUrl.openStream()));
+
+                        try {
+                            for (String line; (line = r.readLine()) != null; ) {
+                                b.append(line).append("\n");
+                            }
+                        } finally {
+                            r.close();
+                        }
+                        rssResult = b.toString();
+                        return rssResult;
+
+                    } catch (MalformedURLException e) {
+                        throw new RuntimeException(e);
+                    } catch (IOException e) {
+                        return e.getMessage();
+                    }
+                }
+
+                @Override
+                protected void onPostExecute(String mess) {
+                    Log.e("SERVICE", "post execute ");
+                    //rss.setText(mess);
+                }
+            };
+
+            t.execute();
+        return rssResult;
+
+    }
+
 }

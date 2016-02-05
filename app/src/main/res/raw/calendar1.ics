@@ -2,10 +2,10 @@ BEGIN:VCALENDAR
 PRODID:-//Microsoft Corporation//Outlook 14.0 MIMEDIR//EN
 VERSION:2.0
 METHOD:PUBLISH
-X-CALSTART:20160203T130000Z
-X-CALEND:20160203T200000Z
-X-CLIPSTART:20160202T230000Z
-X-CLIPEND:20160203T230000Z
+X-CALSTART:20160205T090000Z
+X-CALEND:20160205T180400Z
+X-CLIPSTART:20160204T230000Z
+X-CLIPEND:20160205T230000Z
 X-WR-RELCALID:{0000002E-3D2A-954B-ACAD-DC808AAEBF76}
 X-WR-CALNAME:Bachroniková Alžběta
 X-PRIMARY-CALENDAR:TRUE
@@ -33,10 +33,10 @@ CATEGORIES:work
 CLASS:PUBLIC
 CREATED:20160129T114146Z
 DESCRIPTION:\n
-DTEND;TZID="Central Europe Standard Time":20160203T160700
-DTSTAMP:20160203T145238Z
-DTSTART;TZID="Central Europe Standard Time":20160203T160500
-LAST-MODIFIED:20160203T145230Z
+DTEND;TZID="Central Europe Standard Time":20160205T190400
+DTSTAMP:20160205T091837Z
+DTSTART;TZID="Central Europe Standard Time":20160205T190000
+LAST-MODIFIED:20160205T091754Z
 PRIORITY:5
 SEQUENCE:0
 SUMMARY;LANGUAGE=cs:meeting 3
@@ -55,329 +55,93 @@ X-MS-OLK-AUTOFILLLOCATION:TRUE
 X-MS-OLK-CONFTYPE:0
 END:VEVENT
 BEGIN:VEVENT
-CLASS:PRIVATE
-DTEND;TZID="Central Europe Standard Time":20160203T150000
-DTSTAMP:20160203T145238Z
-DTSTART;TZID="Central Europe Standard Time":20160203T140000
-SEQUENCE:0
-SUMMARY;LANGUAGE=cs:Private Appointment
-TRANSP:OPAQUE
-UID:040000008200E00074C5B7101A82E00800000000204A6D6C9F5DD101000000000000000
-	010000000F404DF8FF7733049A9AB3A23283233A7
-X-MICROSOFT-CDO-BUSYSTATUS:TENTATIVE
-END:VEVENT
-BEGIN:VEVENT
-ATTENDEE;CN="Babjak Jozef";RSVP=TRUE:mailto:babjak@cngroup.dk
-ATTENDEE;CN="Bachroniková Alžběta";RSVP=TRUE;PARTSTAT=ACCEPTED;X-MS-OLK-
-	RESPTIME=20160203T142000Z:mailto:bachronikova@cngroup.dk
-ATTENDEE;CN="Balabán Mikuláš";RSVP=TRUE:mailto:balaban@cngroup.dk
-ATTENDEE;CN="Barbariiskii Nikolai";RSVP=TRUE:mailto:barbariiskii@cngroup.dk
-ATTENDEE;CN="Barci Pavol";RSVP=TRUE:mailto:barci@cngroup.dk
-ATTENDEE;CN="Bařina Marek";RSVP=TRUE:mailto:barina@cngroup.dk
-ATTENDEE;CN="Bárta Jan";RSVP=TRUE:invalid:nomail
-ATTENDEE;CN="Bartoš Zdeněk";RSVP=TRUE:mailto:bartos@cngroup.dk
-ATTENDEE;CN="Bezděková Veronika";RSVP=TRUE:mailto:bezdekova@cngroup.dk
-ATTENDEE;CN="Bial Attila";RSVP=TRUE:mailto:bial@cngroup.dk
-ATTENDEE;CN="Buriánek Jakub";RSVP=TRUE:mailto:burianekj@cngroup.dk
-ATTENDEE;CN="Cach Dominik";RSVP=TRUE:mailto:cach@cngroup.dk
-ATTENDEE;CN="Carda Petr";RSVP=TRUE:mailto:carda@cngroup.dk
-ATTENDEE;CN="Čermáková Júlia";RSVP=TRUE:mailto:cermakova@cngroup.dk
-ATTENDEE;CN="Černý Jan";RSVP=TRUE:mailto:cernyj@cngroup.dk
-ATTENDEE;CN="Cerovský Igor";RSVP=TRUE:mailto:cerovsky@cngroup.dk
-ATTENDEE;CN="Chalupa Martin";RSVP=TRUE:mailto:chalupa@cngroup.dk
-ATTENDEE;CN="Chaouai Badr";RSVP=TRUE:mailto:chaouai@cngroup.dk
-ATTENDEE;CN="Chlebanová Jana";RSVP=TRUE:mailto:chlebanova@cngroup.dk
-ATTENDEE;CN="Chundelová Šulcová Hana";RSVP=TRUE:mailto:sulcova@cngroup.d
-	k
-ATTENDEE;CN="Citorík Juraj";RSVP=TRUE:mailto:citorik@cngroup.dk
-ATTENDEE;CN="Crhonek Jaroslav";RSVP=TRUE:mailto:crhonek@cngroup.dk
-ATTENDEE;CN="Csikós Peter";RSVP=TRUE:mailto:csikos@cngroup.dk
-ATTENDEE;CN="Čumpelík Michal";RSVP=TRUE:mailto:cumpelik@cngroup.dk
-ATTENDEE;CN="Czvalinga Rastislav";RSVP=TRUE:mailto:czvalinga@cngroup.dk
-ATTENDEE;CN="Devečka Marián";RSVP=TRUE:mailto:devecka@cngroup.dk
-ATTENDEE;CN="Dobiáš Leoš";RSVP=TRUE:mailto:dobiasl@cngroup.dk
-ATTENDEE;CN="Dobiáš Martin";RSVP=TRUE:mailto:dobias@cngroup.dk
-ATTENDEE;CN="Dočekal Jan";RSVP=TRUE:mailto:docekal@cngroup.dk
-ATTENDEE;CN="Dvořáček Jan";RSVP=TRUE:mailto:dvoracek@cngroup.dk
-ATTENDEE;CN="Fadilová Yasmina";RSVP=TRUE:mailto:fadil@cngroup.dk
-ATTENDEE;CN="Faltýnková Anežka";RSVP=TRUE:mailto:faltynkova@cngroup.dk
-ATTENDEE;CN="Fiala Dominik";RSVP=TRUE:mailto:fiala@cngroup.dk
-ATTENDEE;CN="Figura Petr";RSVP=TRUE:mailto:figura@cngroup.dk
-ATTENDEE;CN="Fleischer Jan";RSVP=TRUE:mailto:fleischer@cngroup.dk
-ATTENDEE;CN="Fojtík Roman";RSVP=TRUE:mailto:fojtik@cngroup.dk
-ATTENDEE;CN="Gál Pavol";RSVP=TRUE:mailto:gal@cngroup.dk
-ATTENDEE;CN="Göbl Josef";RSVP=TRUE:mailto:gobl@cngroup.dk
-ATTENDEE;CN="Hampl Pavel";RSVP=TRUE:mailto:hampl@cngroup.dk
-ATTENDEE;CN="Hanáková Lenka";RSVP=TRUE:mailto:hanakova@cngroup.dk
-ATTENDEE;CN="Hanč Petr";RSVP=TRUE:mailto:hanc@cngroup.dk
-ATTENDEE;CN="Harkat Yousra";RSVP=TRUE:mailto:harkat@cngroup.dk
-ATTENDEE;CN="Henzl Jan";RSVP=TRUE:mailto:henzl@cngroup.dk
-ATTENDEE;CN="Hoa Thai Hai";RSVP=TRUE:mailto:hoa@cngroup.dk
-ATTENDEE;CN="Hogenauer Martin";RSVP=TRUE:mailto:hogenauer@cngroup.dk
-ATTENDEE;CN="Holenda Ondřej";RSVP=TRUE:mailto:holenda@cngroup.dk
-ATTENDEE;CN="Homsi Imad Al";RSVP=TRUE:mailto:homsi@cngroup.dk
-ATTENDEE;CN="Horáček Tomáš";RSVP=TRUE:mailto:horacek@cngroup.dk
-ATTENDEE;CN="Hořínek Dalibor";RSVP=TRUE:mailto:horinek@cngroup.dk
-ATTENDEE;CN="Hošek Jan";RSVP=TRUE:mailto:hosek@cngroup.dk
-ATTENDEE;CN="Hradecký Luboš";RSVP=TRUE:mailto:hradecky@cngroup.dk
-ATTENDEE;CN="Ibl Filip";RSVP=TRUE:mailto:ibl@cngroup.dk
-ATTENDEE;CN="Ilavský Matej";RSVP=TRUE:mailto:ilavsky@cngroup.dk
-ATTENDEE;CN="Ivaničová Slávka";RSVP=TRUE:mailto:ivanicova@cngroup.dk
-ATTENDEE;CN="Jacková Eva";RSVP=TRUE:mailto:jackova@cngroup.dk
-ATTENDEE;CN="Jakuba Ondřej";RSVP=TRUE:mailto:jakuba@cngroup.dk
-ATTENDEE;CN="Janečka Jaroslav";RSVP=TRUE:mailto:janecka@cngroup.dk
-ATTENDEE;CN="Janočko Jan";RSVP=TRUE:mailto:janocko@cngroup.dk
-ATTENDEE;CN="Janota David";RSVP=TRUE:mailto:janota@cngroup.dk
-ATTENDEE;CN="Jareš Jakub";RSVP=TRUE:mailto:jares@cngroup.dk
-ATTENDEE;CN="Jaworski Daniel";RSVP=TRUE:mailto:jaworski@cngroup.dk
-ATTENDEE;CN="Jeřábek Josef";RSVP=TRUE:mailto:jerabek@cngroup.dk
-ATTENDEE;CN="Jirásek Pavel";RSVP=TRUE:mailto:jirasek@cngroup.dk
-ATTENDEE;CN="Kačička Tomáš";RSVP=TRUE:mailto:kacicka@cngroup.dk
-ATTENDEE;CN="Kalamár Matúš";RSVP=TRUE:mailto:kalamar@cngroup.dk
-ATTENDEE;CN="Kalandra Pavel";RSVP=TRUE:mailto:kalandra@cngroup.dk
-ATTENDEE;CN="Karasová Miroslava";RSVP=TRUE:mailto:karasova@cngroup.dk
-ATTENDEE;CN="Kefurt Michal";RSVP=TRUE:mailto:kefurt@cngroup.dk
-ATTENDEE;CN="Kehar Jiří";RSVP=TRUE:mailto:kehar@cngroup.dk
-ATTENDEE;CN="Klimek Jaroslav";RSVP=TRUE:mailto:klimek@cngroup.dk
-ATTENDEE;CN="Knězek Martin";RSVP=TRUE:mailto:knezek@cngroup.dk
-ATTENDEE;CN="Kohlíček Jaromír";RSVP=TRUE:mailto:kohlicek@cngroup.dk
-ATTENDEE;CN="Kolací Tomáš";RSVP=TRUE:mailto:kolaci@cngroup.dk
-ATTENDEE;CN="Kolář Martin";RSVP=TRUE:mailto:kolar@cngroup.dk
-ATTENDEE;CN="Kolek Ondřej";RSVP=TRUE:mailto:kolek@cngroup.dk
-ATTENDEE;CN="Koma Vít";RSVP=TRUE:mailto:koma@cngroup.dk
-ATTENDEE;CN="Koman Pavol";RSVP=TRUE:mailto:koman@cngroup.dk
-ATTENDEE;CN="Komárek Ivo";RSVP=TRUE:mailto:komarek@cngroup.dk
-ATTENDEE;CN="Kostka David";RSVP=TRUE:mailto:kostka@cngroup.dk
-ATTENDEE;CN="Kott Petr";RSVP=TRUE:mailto:kott@cngroup.dk
-ATTENDEE;CN="Kovačev Radovan";RSVP=TRUE:mailto:kovacev@cngroup.dk
-ATTENDEE;CN="Kožej Ján";RSVP=TRUE:mailto:kozej@cngroup.dk
-ATTENDEE;CN="Králík Josef";RSVP=TRUE:mailto:kralik@cngroup.dk
-ATTENDEE;CN="Krobová Lucie";RSVP=TRUE:mailto:krobova@cngroup.dk
-ATTENDEE;CN="Kroulík Jan";RSVP=TRUE:mailto:kroulik@cngroup.dk
-ATTENDEE;CN="Kubíček Jovan";RSVP=TRUE:mailto:kubicek@cngroup.dk
-ATTENDEE;CN="Kubový David";RSVP=TRUE:mailto:kubovy@cngroup.dk
-ATTENDEE;CN="Kupčáková Lenka";RSVP=TRUE:mailto:kupcakova@cngroup.dk
-ATTENDEE;CN="Kuzmin Jurij";RSVP=TRUE:mailto:kuzmin@cngroup.dk
-ATTENDEE;CN="Labík Jan";RSVP=TRUE:mailto:labik@cngroup.dk
-ATTENDEE;CN="Lenzová Iva";RSVP=TRUE:mailto:lenzova@cngroup.dk
-ATTENDEE;CN="Liaukovich Rastsislau";RSVP=TRUE:mailto:liaukovich@cngroup.dk
-ATTENDEE;CN="Ličko Tomáš";RSVP=TRUE:mailto:licko@cngroup.dk
-ATTENDEE;CN="Lstiburková Zuzana";RSVP=TRUE:mailto:lstiburkova@cngroup.dk
-ATTENDEE;CN="Machala Tomáš";RSVP=TRUE:mailto:machala@cngroup.dk
-ATTENDEE;CN="Machart Jiří";RSVP=TRUE:mailto:machart@cngroup.dk
-ATTENDEE;CN="Macka Radek";RSVP=TRUE:mailto:macka@cngroup.dk
-ATTENDEE;CN="Macko Martin";RSVP=TRUE:mailto:macko@cngroup.dk
-ATTENDEE;CN="Maddane Motaquillah";RSVP=TRUE:mailto:maddane@cngroup.dk
-ATTENDEE;CN="Maistrenko Olena";RSVP=TRUE:mailto:maistrenko@cngroup.dk
-ATTENDEE;CN="Makarov Alexander";RSVP=TRUE:mailto:makarov@cngroup.dk
-ATTENDEE;CN="Maleček David";RSVP=TRUE:mailto:malecek@cngroup.dk
-ATTENDEE;CN="Malečík Martin";RSVP=TRUE:mailto:malecik@cngroup.dk
-ATTENDEE;CN="Marcalik Tomáš";RSVP=TRUE:mailto:marcalik@cngroup.dk
-ATTENDEE;CN="Markovič Patrik";RSVP=TRUE:mailto:markovic@cngroup.dk
-ATTENDEE;CN="Martiník Jakub";RSVP=TRUE:mailto:martinik@cngroup.dk
-ATTENDEE;CN="Matějka Stanislav";RSVP=TRUE:mailto:matejkas@cngroup.dk
-ATTENDEE;CN="Metz Tomáš";RSVP=TRUE:mailto:metz@cngroup.dk
-ATTENDEE;CN="Mikala Roman";RSVP=TRUE:mailto:mikala@cngroup.dk
-ATTENDEE;CN="Mikleš Marek";RSVP=TRUE:mailto:mikles@cngroup.dk
-ATTENDEE;CN="Mikloš Jozef";RSVP=TRUE:mailto:miklos@cngroup.dk
-ATTENDEE;CN="Mikuš Dominik";RSVP=TRUE:mailto:mikusd@cngroup.dk
-ATTENDEE;CN="Mikuš Michael";RSVP=TRUE:mailto:mikus@cngroup.dk
-ATTENDEE;CN="Miler Filip";RSVP=TRUE:mailto:miler@cngroup.dk
-ATTENDEE;CN="Mračko Peter";RSVP=TRUE:mailto:mracko@cngroup.dk
-ATTENDEE;CN="Müllerová Sandra";RSVP=TRUE:mailto:mullerova@cngroup.dk
-ATTENDEE;CN="Murarik Jan";RSVP=TRUE:mailto:murarik@cngroup.dk
-ATTENDEE;CN="Musatov Boris";RSVP=TRUE:mailto:musatov@cngroup.dk
-ATTENDEE;CN="Naď Andrej";RSVP=TRUE:mailto:nad@cngroup.dk
-ATTENDEE;CN="Nadymáček Pavel";RSVP=TRUE:mailto:nadymacek@cngroup.dk
-ATTENDEE;CN="Navrátilová Barbora";RSVP=TRUE:mailto:navratilova@cngroup.dk
-ATTENDEE;CN="Nielsen Steen Westh";RSVP=TRUE:mailto:nielsen@cngroup.dk
-ATTENDEE;CN="Novák Michal";RSVP=TRUE:mailto:novak@cngroup.dk
-ATTENDEE;CN="Nováková Zuzana";RSVP=TRUE:mailto:novakova@cngroup.dk
-ATTENDEE;CN="Olah Petr";RSVP=TRUE:mailto:olah@cngroup.dk
-ATTENDEE;CN="Osička Tomáš";RSVP=TRUE:mailto:osicka@cngroup.dk
-ATTENDEE;CN="Peprník Lubomír";RSVP=TRUE:mailto:peprnik@cngroup.dk
-ATTENDEE;CN="Peš Martin";RSVP=TRUE:mailto:pes@cngroup.dk
-ATTENDEE;CN="Pípal Michal";RSVP=TRUE:mailto:pipal@cngroup.dk
-ATTENDEE;CN="Piška Lukáš";RSVP=TRUE:mailto:piska@cngroup.dk
-ATTENDEE;CN="Piskla Milan";RSVP=TRUE:mailto:piskla@cngroup.dk
-ATTENDEE;CN="Plesník Zbyněk";RSVP=TRUE:mailto:plesnik@cngroup.dk
-ATTENDEE;CN="Pokorná Denisa";RSVP=TRUE:mailto:pokorna@cngroup.dk
-ATTENDEE;CN="Polka Oliver";RSVP=TRUE:mailto:polka@cngroup.dk
-ATTENDEE;CN="Pospíšil Bohumír";RSVP=TRUE:mailto:pospisilb@cngroup.dk
-ATTENDEE;CN="Procházka Vladimír";RSVP=TRUE:mailto:prochazkav@cngroup.dk
-ATTENDEE;CN="Rábel Roman";RSVP=TRUE:mailto:rabel@cngroup.dk
-ATTENDEE;CN="Rachůnek Filip";RSVP=TRUE:mailto:rachunek@cngroup.dk
-ATTENDEE;CN="Randa Zdeněk";RSVP=TRUE:mailto:randa@cngroup.dk
-ATTENDEE;CN="Řezáč Tomáš";RSVP=TRUE:mailto:rezac@cngroup.dk
-ATTENDEE;CN="Riedel Marek";RSVP=TRUE:mailto:riedel@cngroup.dk
-ATTENDEE;CN="Riedel Miroslav";RSVP=TRUE:mailto:riedelm@cngroup.dk
-ATTENDEE;CN="Rothbauer Ben";RSVP=TRUE:mailto:rothbauer@cngroup.dk
-ATTENDEE;CN="Rusňák Patrik";RSVP=TRUE:mailto:rusnak@cngroup.dk
-ATTENDEE;CN="Růžek Václav";RSVP=TRUE:mailto:ruzek@cngroup.dk
-ATTENDEE;CN="Šálek Lukáš";RSVP=TRUE:mailto:salek@cngroup.dk
-ATTENDEE;CN="Šebesta Zdeněk";RSVP=TRUE:mailto:sebesta@cngroup.dk
-ATTENDEE;CN="Seč Michal";RSVP=TRUE:mailto:sec@cngroup.dk
-ATTENDEE;CN="Ševčík Martin";RSVP=TRUE:mailto:sevcikm@cngroup.dk
-ATTENDEE;CN="Shablii Ievgen";RSVP=TRUE:mailto:shablii@cngroup.dk
-ATTENDEE;CN="Šimánková Jana";RSVP=TRUE:mailto:simankova@cngroup.dk
-ATTENDEE;CN="Šimeček Zbyněk";RSVP=TRUE:mailto:simecekz@cngroup.dk
-ATTENDEE;CN="Šindelář Jiří";RSVP=TRUE:mailto:sindelar@cngroup.dk
-ATTENDEE;CN="Širica Michal";RSVP=TRUE:mailto:sirica@cngroup.dk
-ATTENDEE;CN="Sklenář Ivo";RSVP=TRUE:mailto:sklenar@cngroup.dk
-ATTENDEE;CN="Škuta Lukáš";RSVP=TRUE:mailto:skuta@cngroup.dk
-ATTENDEE;CN="Šmiraus Michal";RSVP=TRUE:mailto:smiraus@cngroup.dk
-ATTENDEE;CN="Šošolík Jiří";RSVP=TRUE:mailto:sosolik@cngroup.dk
-ATTENDEE;CN="Souček René";RSVP=TRUE:mailto:soucekr@cngroup.dk
-ATTENDEE;CN="Soule Kamil";RSVP=TRUE:mailto:soule@cngroup.dk
-ATTENDEE;CN="Šťastný Miloslav";RSVP=TRUE:mailto:stastny@cngroup.dk
-ATTENDEE;CN="Stepaňuk Viktor";RSVP=TRUE:mailto:stepanuk@cngroup.dk
-ATTENDEE;CN="Štipek Petr";RSVP=TRUE:mailto:stipek@cngroup.dk
-ATTENDEE;CN="Stupka Mojžíš";RSVP=TRUE:mailto:stupka@cngroup.dk
-ATTENDEE;CN="Suchyňová Marika";RSVP=TRUE:mailto:suchynova@cngroup.dk
-ATTENDEE;CN="Šuláková Kateřina";RSVP=TRUE:mailto:sulakova@cngroup.dk
-ATTENDEE;CN="Svoboda Lukáš";RSVP=TRUE:mailto:svoboda@cngroup.dk
-ATTENDEE;CN="Szlezák Róbert";RSVP=TRUE:mailto:szlezak@cngroup.dk
-ATTENDEE;CN="Talaš Roman";RSVP=TRUE:mailto:talas@cngroup.dk
-ATTENDEE;CN="Tejkl Michal";RSVP=TRUE:mailto:tejkl@cngroup.dk
-ATTENDEE;CN="Tomková Denisa";RSVP=TRUE:mailto:tomkova@cngroup.dk
-ATTENDEE;CN="Urban Jiří";RSVP=TRUE:mailto:urbanj@cngroup.dk
-ATTENDEE;CN="Vaculík Josef";RSVP=TRUE:mailto:vaculik@cngroup.dk
-ATTENDEE;CN="Vlk Josef";RSVP=TRUE:mailto:vlk@cngroup.dk
-ATTENDEE;CN="Vokáčová Naděžda";RSVP=TRUE:mailto:vokacova@cngroup.dk
-ATTENDEE;CN="Volena Zdeněk";RSVP=TRUE:mailto:volena@cngroup.dk
-ATTENDEE;CN="Volf Martin";RSVP=TRUE:mailto:volf@cngroup.dk
-ATTENDEE;CN="Volšická Gombárová Martina";RSVP=TRUE:mailto:volsicka_gomb
-	arova@cngroup.dk
-ATTENDEE;CN="Vondráček Lukáš";RSVP=TRUE:mailto:vondracek@cngroup.dk
-ATTENDEE;CN="Vondráčková Lenka";RSVP=TRUE:mailto:vondrackova@cngroup.dk
-ATTENDEE;CN="Voslař Tomáš";RSVP=TRUE:mailto:voslar@cngroup.dk
-ATTENDEE;CN="Vostatek Filip";RSVP=TRUE:mailto:vostatek@cngroup.dk
-ATTENDEE;CN="Vrška Michal";RSVP=TRUE:mailto:vrska@cngroup.dk
-ATTENDEE;CN="Warzel Petr";RSVP=TRUE:mailto:warzel@cngroup.dk
-ATTENDEE;CN="Žáček Petr";RSVP=TRUE:mailto:zacek@cngroup.dk
-ATTENDEE;CN="Zmeškal Jiří";RSVP=TRUE:mailto:zmeskal@cngroup.dk
+ATTENDEE;CN="Bachroniková Alžběta";RSVP=TRUE:mailto:bachronikova@cngroup
+	.dk
 ATTENDEE;CN="Zrubec Michal";RSVP=TRUE:mailto:zrubec@cngroup.dk
-ATTENDEE;CN="Zubataia Ecaterina";RSVP=TRUE:mailto:zubataia@cngroup.dk
+ATTENDEE;CN="Karasová Miroslava";RSVP=TRUE:mailto:karasova@cngroup.dk
+ATTENDEE;CN="Rusňák Patrik";RSVP=TRUE:mailto:rusnak@cngroup.dk
+ATTENDEE;CN="Ivaničová Slávka";RSVP=TRUE:mailto:ivanicova@cngroup.dk
+ATTENDEE;CN="Faltýnková Anežka";RSVP=TRUE:mailto:faltynkova@cngroup.dk
+ATTENDEE;CN="Ibl Filip";RSVP=TRUE:mailto:ibl@cngroup.dk
+ATTENDEE;CN="Čermáková Júlia";RSVP=TRUE:mailto:cermakova@cngroup.dk
+ATTENDEE;CN="Kuzmin Jurij";RSVP=TRUE:mailto:kuzmin@cngroup.dk
+ATTENDEE;CN="Soule Kamil";RSVP=TRUE:mailto:soule@cngroup.dk
+ATTENDEE;CN="Šálek Lukáš";RSVP=TRUE:mailto:salek@cngroup.dk
+ATTENDEE;CN="Hoa Thai Hai";RSVP=TRUE:mailto:hoa@cngroup.dk
+ATTENDEE;CN="Malečík Martin";RSVP=TRUE:mailto:malecik@cngroup.dk
+ATTENDEE;CN="Jakuba Ondřej";RSVP=TRUE:mailto:jakuba@cngroup.dk
+ATTENDEE;CN="Macko Martin";RSVP=TRUE:mailto:macko@cngroup.dk
+ATTENDEE;CN="Markovič Patrik";RSVP=TRUE:mailto:markovic@cngroup.dk
+ATTENDEE;CN="Šebesta Zdeněk";RSVP=TRUE:mailto:sebesta@cngroup.dk
+ATTENDEE;CN="Bařina Marek";RSVP=TRUE:mailto:barina@cngroup.dk
+ATTENDEE;CN="Crhonek Jaroslav";RSVP=TRUE:mailto:crhonek@cngroup.dk
 CLASS:PUBLIC
-CREATED:20160202T093421Z
-DESCRIPTION:Hey everyone\,\n\nAs some of you know CN Group is organizing Ha
-	ndsOn events where you can try and learn a lot of interesting things. It i
-	s all under the umbrella of #InDeEd Brand J \n\nCheck the official Intro: 
-	https://www.youtube.com/watch?v=nYDOgoOHNkU\n\nAnd a video from previous H
-	andsOn about React Native: https://www.youtube.com/watch?v=Dm_UW2Vof2s\n\n
-	This one will be all about FlexBox and SVG and will be presented by Tomá
-	š Řezáč and Motaqui Maddane (developers from CN)\n\nThe whole Hands on
-	 will take place in co-working space in Node 5 (some drinks & snacks will 
-	be provided by CN). \n\n \n\nOfficial Description:\n\nCSS is hard and more
-	 precisely building layouts\, it's not everybody's cup of tea. That's wher
-	e Flexbox comes in\, it helps you avoid most of the frustrations related t
-	o building layouts and responsive components\, no more workarounds\, no mo
-	re floats and inline-block\, no more clear fix and hacky ways\, build layo
-	uts with CSS properties who are made specifically for that. Finally\, reme
-	mber those multicolor responsive icons that you always wanted. You will le
-	arn how to generate SVG sprites and enhance them with JS\, CSS and some fa
-	ncy animations.\n\nAgenda:\n# Talks\n- Introduce the audience to the conce
-	pts of Flexbox.\n- Show some quick examples of flexbox.\n- Learn the basic
-	 concepts related to SVG.\n\n# Workshop\n- Build a simplified version of t
-	he Twitter feed page.\n- Enhance it with SVG icons.\n\nRegarding the techn
-	ical prerequisites\, we will give them to you as we progress.\n\n\n\n \n\n
-	I am looking forward to meet you there!\n\nHandsOn team:\n\nTomáš Řezá
-	č\n\nMotaqui Maddanne\n\nKatka Šuláková\n\nJan Černý\n\nLukas Jan Ma
-	rek\n\n \n\n \n\n
-DTEND;TZID="Central Europe Standard Time":20160203T210000
-DTSTAMP:20160202T093358Z
-DTSTART;TZID="Central Europe Standard Time":20160203T180000
-LAST-MODIFIED:20160202T093421Z
-LOCATION:Node5 - Radlická 50\, Prague
-ORGANIZER;CN="Marek Lukáš":mailto:marek@cngroup.dk
+CREATED:20160202T141737Z
+DESCRIPTION:Ahojte\n\nVitam novych univerzitakov a zaroven pozyvam vsetkych
+	 na dalsiu prednasku – Spring.\nTentokrat je to teda cisto Java prednask
+	a\, ale vitany je kazdy\, kto ma zaujem :-)\n\nPrednasat bude Jarda Crhone
+	k.\n\nDalsie prednasky\, ktore su v plane (niektore sa uz budu opakovat): 
+	Git\, Maven\, SQL\, ORM\, WebServices\, Testing\n\nZaroven chcem poprosit 
+	vsetkych novych a vsetkych\, ktori tak este neurobili:\n	- nasharujte si k
+	alendare v Outlooku http://intranet/IT/manuals/outlook_share/outlook_share
+	.html\n- kazdy kto nie je na fulltime\, snazte sa prosim v ramci svojich m
+	oznosti pisat do kalendara kedy ste v praci – ulahci nam to planovanie p
+	rednasok\n\nBudeme sa na Vas tesit\nhttp://www.clickypix.com/wp-content/up
+	loads/2014/04/funny-spring-photos6.jpg\n\nPalo\n\n\n
+DTEND;TZID="Central Europe Standard Time":20160205T163000
+DTSTAMP:20160202T141736Z
+DTSTART;TZID="Central Europe Standard Time":20160205T150000
+LAST-MODIFIED:20160202T141737Z
+LOCATION:Meeting Room Zlín\; Meeting Room Bratislava\; Meeting Room 20
+ORGANIZER;CN="Gál Pavol":mailto:gal@cngroup.dk
 PRIORITY:5
 SEQUENCE:0
-SUMMARY;LANGUAGE=sk:#InDeEd HandsOn - Flexbox & SVG
+SUMMARY;LANGUAGE=sk:CN University prednaska
 TRANSP:OPAQUE
-UID:040000008200E00074C5B7101A82E0080000000050B6A150A45DD101000000000000000
-	010000000697D3AD290D0714BA28E92FE5185D1DE
-X-ALT-DESC;FMTTYPE=text/html:<html xmlns:v="urn:schemas-microsoft-com:vml" 
-	xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-mic
-	rosoft-com:office:word" xmlns:m="http://schemas.microsoft.com/office/2004/
-	12/omml" xmlns="http://www.w3.org/TR/REC-html40"><head>\n<meta http-equiv=
-	"Content-Type" content="text/html\; charset=iso-8859-2"><meta name="Genera
-	tor" content="Microsoft Word 15 (filtered medium)"><style><!--\n/* Font De
-	finitions */\n@font-face\n	{font-family:Helvetica\;\n	panose-1:2 11 6 4 2 
-	2 2 2 2 4\;}\n@font-face\n	{font-family:Wingdings\;\n	panose-1:5 0 0 0 0 0
-	 0 0 0 0\;}\n@font-face\n	{font-family:"Cambria Math"\;\n	panose-1:2 4 5 3
-	 5 4 6 3 2 4\;}\n@font-face\n	{font-family:Calibri\;\n	panose-1:2 15 5 2 2
-	 2 4 3 2 4\;}\n/* Style Definitions */\np.MsoNormal\, li.MsoNormal\, div.M
-	soNormal\n	{margin:0cm\;\n	margin-bottom:.0001pt\;\n	font-size:11.0pt\;\n	
-	font-family:"Calibri"\,sans-serif\;\n	mso-fareast-language:EN-US\;}\na:lin
-	k\, span.MsoHyperlink\n	{mso-style-priority:99\;\n	color:#0563C1\;\n	text-
-	decoration:underline\;}\na:visited\, span.MsoHyperlinkFollowed\n	{mso-styl
-	e-priority:99\;\n	color:#954F72\;\n	text-decoration:underline\;}\np.msonor
-	mal0\, li.msonormal0\, div.msonormal0\n	{mso-style-name:msonormal\;\n	mso-
-	margin-top-alt:auto\;\n	margin-right:0cm\;\n	mso-margin-bottom-alt:auto\;\
-	n	margin-left:0cm\;\n	font-size:12.0pt\;\n	font-family:"Times New Roman"\,
-	serif\;}\nspan.EmailStyle18\n	{mso-style-type:personal-compose\;\n	font-fa
-	mily:"Calibri"\,sans-serif\;\n	color:windowtext\;}\nspan.textexposedshow\n
-		{mso-style-name:text_exposed_show\;}\nspan.apple-converted-space\n	{mso-s
-	tyle-name:apple-converted-space\;}\n.MsoChpDefault\n	{mso-style-type:expor
-	t-only\;\n	font-size:10.0pt\;\n	font-family:"Calibri"\,sans-serif\;\n	mso-
-	fareast-language:EN-US\;}\n@page WordSection1\n	{size:612.0pt 792.0pt\;\n	
-	margin:70.85pt 70.85pt 70.85pt 70.85pt\;}\ndiv.WordSection1\n	{page:WordSe
-	ction1\;}\n--></style><!--[if gte mso 9]><xml>\n<o:shapedefaults v:ext="ed
-	it" spidmax="1026" />\n</xml><![endif]--><!--[if gte mso 9]><xml>\n<o:shap
-	elayout v:ext="edit">\n<o:idmap v:ext="edit" data="1" />\n</o:shapelayout>
-	</xml><![endif]--></head><body lang="CS" link="#0563C1" vlink="#954F72"><d
-	iv class="WordSection1"><p class="MsoNormal"><span lang="EN-US">Hey everyo
-	ne\,<o:p></o:p></span></p><p class="MsoNormal"><span lang="EN-US">As some 
-	of you know CN Group is organizing HandsOn events where you can try and le
-	arn a lot of interesting things. It is all under the umbrella of #InDeEd B
-	rand </span><span lang="EN-US" style="font-family:Wingdings">J</span><span
-	 lang="EN-US"> <o:p></o:p></span></p><p class="MsoNormal"><span lang="EN-U
-	S">Check the official Intro: <a href="https://www.youtube.com/watch?v=nYDO
-	goOHNkU">https://www.youtube.com/watch?v=nYDOgoOHNkU</a><o:p></o:p></span>
-	</p><p class="MsoNormal"><span lang="EN-US">And a video from previous Hand
-	sOn about React Native: <a href="https://www.youtube.com/watch?v=Dm_UW2Vof
-	2s">https://www.youtube.com/watch?v=Dm_UW2Vof2s</a><o:p></o:p></span></p><
-	p class="MsoNormal"><span lang="EN-US">This one will be all about FlexBox 
-	and SVG and will be presented by Tomáš Řezáč and Motaqui Maddane (dev
-	elopers from CN)<o:p></o:p></span></p><p class="MsoNormal"><span lang="EN-
-	US">The whole Hands on will take place in co-working space in Node 5 (some
-	 drinks &amp\; snacks will be provided by CN). <o:p></o:p></span></p><p cl
-	ass="MsoNormal"><span lang="EN-US"><o:p>&nbsp\;</o:p></span></p><p class="
-	MsoNormal"><span lang="EN-US">Official Description:<o:p></o:p></span></p><
-	p class="MsoNormal"><span lang="EN-US" style="font-size:10.5pt\;font-famil
-	y:&quot\;Helvetica&quot\;\,sans-serif\;color:#141823\;background:white">CS
-	S is hard and more precisely building layouts\, it's not everybody's cup o
-	f tea. That's where Flexbox comes in\, it helps you avoid most of the frus
-	trations related to building layouts and responsive components\, no more w
-	orkarounds\, no more floats and inline-block\, no more clear fix and hacky
-	 ways\, build layouts with CSS properties who are made specifically for th
-	at. Finally\, remember those multicolor responsive icons that you always w
-	anted. You will learn how to generate SVG sprites and enhance them with JS
-	\, CSS and some fancy animations.</span><span lang="EN-US" style="font-siz
-	e:10.5pt\;font-family:&quot\;Helvetica&quot\;\,sans-serif\;color:#141823">
-	<br><br><span style="background:white">Agenda:</span><br><span style="back
-	ground:white"># Talks</span><br><span style="background:white">- Introduce
-	 the audience to the concepts of Flexbox.</span><br><span style="backgroun
-	d:white">- Show some quick examples of flexbox.</span><br><span style="bac
-	kground:white">- Learn the basic concepts related to SVG.</span><br><br><s
-	pan style="background:white"># Workshop</span><br><span style="background:
-	white">- Build a<span class="apple-converted-space">&nbsp\;</span><span cl
-	ass="textexposedshow">simplified version of the Twitter feed page.</span><
-	br><span class="textexposedshow">- Enhance it with SVG icons.</span><br><b
-	r><span class="textexposedshow">Regarding the technical prerequisites\, we
-	 will give them to you as we progress.</span><br><br></span></span><span l
-	ang="EN-US"><o:p></o:p></span></p><p class="MsoNormal"><span lang="EN-US">
-	<o:p>&nbsp\;</o:p></span></p><p class="MsoNormal"><span lang="EN-US">I am 
-	looking forward to meet you there!<o:p></o:p></span></p><p class="MsoNorma
-	l"><span lang="SV">HandsOn team:<o:p></o:p></span></p><p class="MsoNormal"
-	><span lang="SV">Tomáš Řezáč<o:p></o:p></span></p><p class="MsoNormal
-	"><span lang="SV">Motaqui Maddanne<o:p></o:p></span></p><p class="MsoNorma
-	l"><span lang="SV">Katka Šuláková<o:p></o:p></span></p><p class="MsoNor
-	mal"><span lang="SV">Jan Černý<o:p></o:p></span></p><p class="MsoNormal"
-	><span lang="SV">Lukas Jan Marek<o:p></o:p></span></p><p class="MsoNormal"
-	><span lang="SV"><o:p>&nbsp\;</o:p></span></p><p class="MsoNormal"><span l
-	ang="SV"><o:p>&nbsp\;</o:p></span></p></div></body></html>
-X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+UID:040000008200E00074C5B7101A82E008000000003069CC91C85DD101000000000000000
+	0100000003F0B0AD71EB15249A7ABE258FD559C8E
+X-ALT-DESC;FMTTYPE=text/html:<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//E
+	N">\n<HTML>\n<HEAD>\n<META NAME="Generator" CONTENT="MS Exchange Server ve
+	rsion 14.02.5004.000">\n<TITLE></TITLE>\n</HEAD>\n<BODY>\n<!-- Converted f
+	rom text/rtf format -->\n\n<P DIR=LTR><SPAN LANG="cs"><FONT FACE="Calibri"
+	>Ahojte</FONT></SPAN></P>\n\n<P DIR=LTR><SPAN LANG="cs"><FONT FACE="Calibr
+	i">Vitam novych univerzitakov</FONT></SPAN><SPAN LANG="cs"><FONT FACE="Cal
+	ibri"> a zaroven pozyvam vsetkych na dalsiu prednasku – Spring.</FONT></
+	SPAN></P>\n\n<P DIR=LTR><SPAN LANG="cs"><FONT FACE="Calibri">Tentokrat je 
+	to teda cisto Java prednaska\, ale vitany je kazdy\, kto ma zaujem</FONT><
+	/SPAN><SPAN LANG="cs"> <FONT FACE="Wingdings" SIZE=3>J</FONT></SPAN><SPAN 
+	LANG="cs"></SPAN><SPAN LANG="cs"></SPAN><SPAN LANG="cs"></SPAN></P>\n\n<P 
+	DIR=LTR><SPAN LANG="cs"><FONT FACE="Calibri">Prednasat bude Jarda Crhonek.
+	</FONT></SPAN></P>\n\n<P DIR=LTR><SPAN LANG="cs"><FONT FACE="Calibri">Dals
+	ie prednasky\, ktore su v plane (niektore sa uz budu opakovat): Git\, Mav
+	en\, SQL\, ORM\, WebServices\, Testing</FONT></SPAN></P>\n\n<P DIR=LTR><SP
+	AN LANG="cs"><B><FONT FACE="Calibri">Zaroven chcem poprosit vsetkych novyc
+	h a vsetkych\, ktori tak este neurobili:</FONT></B></SPAN></P>\n<UL DIR=LT
+	R>\n<P DIR=LTR><SPAN LANG="cs"><FONT FACE="Calibri">- nasharujte si kalend
+	are v Outlooku</FONT></SPAN><SPAN LANG="cs"> </SPAN><A HREF="http://intra
+	net/IT/manuals/outlook_share/outlook_share.html"><SPAN LANG="cs"><U><FONT 
+	COLOR="#0000FF" FACE="Calibri">http://intranet/IT/manuals/outlook_share/ou
+	tlook_share.html</FONT></U></SPAN><SPAN LANG="cs"></SPAN></A><SPAN LANG="c
+	s"></SPAN></P>\n</UL>\n<P DIR=LTR><SPAN LANG="cs"><FONT FACE="Calibri">- k
+	azdy kto nie je na fulltime\,</FONT></SPAN><SPAN LANG="cs"> <FONT FACE="Ca
+	libri">snazte sa</FONT></SPAN><SPAN LANG="cs"> <FONT FACE="Calibri">prosim
+	</FONT></SPAN><SPAN LANG="cs"> <FONT FACE="Calibri">v ramci svojich mozno
+	sti pisat do kalendara</FONT></SPAN><SPAN LANG="cs"><FONT FACE="Calibri"><
+	/FONT></SPAN><SPAN LANG="cs"> <FONT FACE="Calibri">kedy</FONT></SPAN><SPAN
+	 LANG="cs"> <FONT FACE="Calibri">ste</FONT></SPAN><SPAN LANG="cs"><FONT FA
+	CE="Calibri"> v praci – ulahci nam to planovanie</FONT></SPAN><SPAN LAN
+	G="cs"><FONT FACE="Calibri"></FONT></SPAN><SPAN LANG="cs"> <FONT FACE="Cal
+	ibri">prednasok</FONT></SPAN><SPAN LANG="cs"></SPAN></P>\n\n<P DIR=LTR><SP
+	AN LANG="cs"></SPAN></P>\n\n<P DIR=LTR><SPAN LANG="cs"><FONT FACE="Calibri
+	">Budeme sa na Vas tesit<BR>\n</FONT></SPAN><SPAN LANG="cs"></SPAN><A HREF
+	="http://www.clickypix.com/wp-content/uploads/2014/04/funny-spring-photos6
+	.jpg"><SPAN LANG="cs"><U><FONT COLOR="#0000FF" FACE="Calibri">http://www.c
+	lickypix.com/wp-content/uploads/2014/04/funny-spring-photos6.jpg</FONT></U
+	></SPAN><SPAN LANG="cs"></SPAN></A><SPAN LANG="cs"></SPAN></P>\n\n<P DIR=L
+	TR><SPAN LANG="cs"><FONT FACE="Calibri">Palo</FONT></SPAN><SPAN LANG="cs">
+	</SPAN></P>\n\n<P DIR=LTR><SPAN LANG="cs"></SPAN></P>\n\n<P DIR=LTR><SPAN 
+	LANG="cs"></SPAN></P>\n\n</BODY>\n</HTML>
+X-MICROSOFT-CDO-BUSYSTATUS:TENTATIVE
 X-MICROSOFT-CDO-IMPORTANCE:1
 X-MICROSOFT-DISALLOW-COUNTER:FALSE
 X-MS-OLK-CONFTYPE:0
@@ -392,10 +156,10 @@ CATEGORIES:work
 CLASS:PUBLIC
 CREATED:20160129T114146Z
 DESCRIPTION:\n
-DTEND;TZID="Central Europe Standard Time":20160203T155500
-DTSTAMP:20160203T145238Z
-DTSTART;TZID="Central Europe Standard Time":20160203T155000
-LAST-MODIFIED:20160203T145217Z
+DTEND;TZID="Central Europe Standard Time":20160205T170600
+DTSTAMP:20160205T091837Z
+DTSTART;TZID="Central Europe Standard Time":20160205T170000
+LAST-MODIFIED:20160205T091712Z
 PRIORITY:5
 SEQUENCE:0
 SUMMARY;LANGUAGE=cs:meeting 1
@@ -418,16 +182,42 @@ CATEGORIES:work
 CLASS:PUBLIC
 CREATED:20160129T114146Z
 DESCRIPTION:\n
-DTEND;TZID="Central Europe Standard Time":20160203T155900
-DTSTAMP:20160203T145238Z
-DTSTART;TZID="Central Europe Standard Time":20160203T155700
-LAST-MODIFIED:20160203T145228Z
+DTEND;TZID="Central Europe Standard Time":20160205T180200
+DTSTAMP:20160205T091837Z
+DTSTART;TZID="Central Europe Standard Time":20160205T180000
+LAST-MODIFIED:20160205T091755Z
 PRIORITY:5
 SEQUENCE:0
 SUMMARY;LANGUAGE=cs:meeting 2
 TRANSP:OPAQUE
 UID:040000008200E00074C5B7101A82E0080000000080F69321985ED101000000000000000
 	0100000002F2482ECB004804E81566D2A0B6139EE
+X-ALT-DESC;FMTTYPE=text/html:<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//E
+	N">\n<HTML>\n<HEAD>\n<META NAME="Generator" CONTENT="MS Exchange Server ve
+	rsion 14.02.5004.000">\n<TITLE></TITLE>\n</HEAD>\n<BODY>\n<!-- Converted f
+	rom text/rtf format -->\n\n<P DIR=LTR><SPAN LANG="cs"></SPAN></P>\n\n</BOD
+	Y>\n</HTML>
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+X-MICROSOFT-DISALLOW-COUNTER:FALSE
+X-MS-OLK-AUTOFILLLOCATION:TRUE
+X-MS-OLK-CONFTYPE:0
+END:VEVENT
+BEGIN:VEVENT
+CATEGORIES:work
+CLASS:PUBLIC
+CREATED:20160204T134543Z
+DESCRIPTION:\n
+DTEND;TZID="Central Europe Standard Time":20160205T130000
+DTSTAMP:20160205T091837Z
+DTSTART;TZID="Central Europe Standard Time":20160205T100000
+LAST-MODIFIED:20160205T084707Z
+PRIORITY:5
+SEQUENCE:0
+SUMMARY;LANGUAGE=cs:work
+TRANSP:OPAQUE
+UID:040000008200E00074C5B7101A82E0080000000010C84FBE5A5FD101000000000000000
+	0100000002856F875B4A14744A3FB6AEA5C352838
 X-ALT-DESC;FMTTYPE=text/html:<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//E
 	N">\n<HTML>\n<HEAD>\n<META NAME="Generator" CONTENT="MS Exchange Server ve
 	rsion 14.02.5004.000">\n<TITLE></TITLE>\n</HEAD>\n<BODY>\n<!-- Converted f
