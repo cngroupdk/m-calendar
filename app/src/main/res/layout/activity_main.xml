@@ -25,11 +25,10 @@
             android:columnCount="2"
             android:paddingBottom="25dp">
 
-            <ImageView
+            <include
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/imageView2"
-                android:src="@drawable/logo2"
+                layout="@layout/top_pane"
                 android:layout_gravity="left|top" />
 
             <fragment

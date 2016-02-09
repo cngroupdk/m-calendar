@@ -38,9 +38,13 @@ public class MeetingFragment extends Fragment {
 
     @AfterViews
     public void fillMeeting(){
-        Log.e("LIFE ","MET FRAG. INIT");
-
-        Meeting currentMeeting = MainActivity_.getCurrentMeeting();
+        Log.e("LIFE ", "MET FRAG. INIT");
+        Session session = Session.getInstance();
+        Meeting currentMeeting = null;
+        OutlookCalendar outlookCalendar = session.getOutlookCalendar();
+        if (outlookCalendar != null){
+            currentMeeting = outlookCalendar.getCurrentMeeting();
+        }
         if (currentMeeting != null){
             meeting = currentMeeting;
             Log.e("LIFE ","Current " + meeting.toString());

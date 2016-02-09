@@ -2,10 +2,10 @@ BEGIN:VCALENDAR
 PRODID:-//Microsoft Corporation//Outlook 14.0 MIMEDIR//EN
 VERSION:2.0
 METHOD:PUBLISH
-X-CALSTART:20160205T090000Z
-X-CALEND:20160205T180400Z
-X-CLIPSTART:20160204T230000Z
-X-CLIPEND:20160205T230000Z
+X-CALSTART:20160208T130000Z
+X-CALEND:20160208T200000Z
+X-CLIPSTART:20160207T230000Z
+X-CLIPEND:20160208T230000Z
 X-WR-RELCALID:{0000002E-3D2A-954B-ACAD-DC808AAEBF76}
 X-WR-CALNAME:Bachroniková Alžběta
 X-PRIMARY-CALENDAR:TRUE
@@ -31,18 +31,18 @@ END:VTIMEZONE
 BEGIN:VEVENT
 CATEGORIES:work
 CLASS:PUBLIC
-CREATED:20160129T114146Z
+CREATED:20160205T112924Z
 DESCRIPTION:\n
-DTEND;TZID="Central Europe Standard Time":20160205T190400
-DTSTAMP:20160205T091837Z
-DTSTART;TZID="Central Europe Standard Time":20160205T190000
-LAST-MODIFIED:20160205T091754Z
+DTEND;TZID="Central Europe Standard Time":20160208T170000
+DTSTAMP:20160208T133614Z
+DTSTART;TZID="Central Europe Standard Time":20160208T140000
+LAST-MODIFIED:20160208T125047Z
 PRIORITY:5
 SEQUENCE:0
-SUMMARY;LANGUAGE=cs:meeting 3
+SUMMARY;LANGUAGE=cs:work
 TRANSP:OPAQUE
-UID:040000008200E00074C5B7101A82E00800000000C05FFD7C925AD101000000000000000
-	0100000002F2482ECB004804E81566D2A0B6139EE
+UID:040000008200E00074C5B7101A82E00800000000D05BA0E51060D101000000000000000
+	0100000002C52335AB6242845861559F6168D9BF8
 X-ALT-DESC;FMTTYPE=text/html:<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//E
 	N">\n<HTML>\n<HEAD>\n<META NAME="Generator" CONTENT="MS Exchange Server ve
 	rsion 14.02.5004.000">\n<TITLE></TITLE>\n</HEAD>\n<BODY>\n<!-- Converted f
@@ -55,95 +55,28 @@ X-MS-OLK-AUTOFILLLOCATION:TRUE
 X-MS-OLK-CONFTYPE:0
 END:VEVENT
 BEGIN:VEVENT
-ATTENDEE;CN="Bachroniková Alžběta";RSVP=TRUE:mailto:bachronikova@cngroup
-	.dk
-ATTENDEE;CN="Zrubec Michal";RSVP=TRUE:mailto:zrubec@cngroup.dk
-ATTENDEE;CN="Karasová Miroslava";RSVP=TRUE:mailto:karasova@cngroup.dk
-ATTENDEE;CN="Rusňák Patrik";RSVP=TRUE:mailto:rusnak@cngroup.dk
-ATTENDEE;CN="Ivaničová Slávka";RSVP=TRUE:mailto:ivanicova@cngroup.dk
-ATTENDEE;CN="Faltýnková Anežka";RSVP=TRUE:mailto:faltynkova@cngroup.dk
-ATTENDEE;CN="Ibl Filip";RSVP=TRUE:mailto:ibl@cngroup.dk
-ATTENDEE;CN="Čermáková Júlia";RSVP=TRUE:mailto:cermakova@cngroup.dk
-ATTENDEE;CN="Kuzmin Jurij";RSVP=TRUE:mailto:kuzmin@cngroup.dk
-ATTENDEE;CN="Soule Kamil";RSVP=TRUE:mailto:soule@cngroup.dk
-ATTENDEE;CN="Šálek Lukáš";RSVP=TRUE:mailto:salek@cngroup.dk
-ATTENDEE;CN="Hoa Thai Hai";RSVP=TRUE:mailto:hoa@cngroup.dk
-ATTENDEE;CN="Malečík Martin";RSVP=TRUE:mailto:malecik@cngroup.dk
-ATTENDEE;CN="Jakuba Ondřej";RSVP=TRUE:mailto:jakuba@cngroup.dk
-ATTENDEE;CN="Macko Martin";RSVP=TRUE:mailto:macko@cngroup.dk
-ATTENDEE;CN="Markovič Patrik";RSVP=TRUE:mailto:markovic@cngroup.dk
-ATTENDEE;CN="Šebesta Zdeněk";RSVP=TRUE:mailto:sebesta@cngroup.dk
-ATTENDEE;CN="Bařina Marek";RSVP=TRUE:mailto:barina@cngroup.dk
-ATTENDEE;CN="Crhonek Jaroslav";RSVP=TRUE:mailto:crhonek@cngroup.dk
 CLASS:PUBLIC
-CREATED:20160202T141737Z
-DESCRIPTION:Ahojte\n\nVitam novych univerzitakov a zaroven pozyvam vsetkych
-	 na dalsiu prednasku – Spring.\nTentokrat je to teda cisto Java prednask
-	a\, ale vitany je kazdy\, kto ma zaujem :-)\n\nPrednasat bude Jarda Crhone
-	k.\n\nDalsie prednasky\, ktore su v plane (niektore sa uz budu opakovat): 
-	Git\, Maven\, SQL\, ORM\, WebServices\, Testing\n\nZaroven chcem poprosit 
-	vsetkych novych a vsetkych\, ktori tak este neurobili:\n	- nasharujte si k
-	alendare v Outlooku http://intranet/IT/manuals/outlook_share/outlook_share
-	.html\n- kazdy kto nie je na fulltime\, snazte sa prosim v ramci svojich m
-	oznosti pisat do kalendara kedy ste v praci – ulahci nam to planovanie p
-	rednasok\n\nBudeme sa na Vas tesit\nhttp://www.clickypix.com/wp-content/up
-	loads/2014/04/funny-spring-photos6.jpg\n\nPalo\n\n\n
-DTEND;TZID="Central Europe Standard Time":20160205T163000
-DTSTAMP:20160202T141736Z
-DTSTART;TZID="Central Europe Standard Time":20160205T150000
-LAST-MODIFIED:20160202T141737Z
-LOCATION:Meeting Room Zlín\; Meeting Room Bratislava\; Meeting Room 20
-ORGANIZER;CN="Gál Pavol":mailto:gal@cngroup.dk
+CREATED:20160208T133546Z
+DESCRIPTION:\n
+DTEND;TZID="Central Europe Standard Time":20160208T190000
+DTSTAMP:20160208T133614Z
+DTSTART;TZID="Central Europe Standard Time":20160208T180000
+LAST-MODIFIED:20160208T133546Z
 PRIORITY:5
 SEQUENCE:0
-SUMMARY;LANGUAGE=sk:CN University prednaska
+SUMMARY;LANGUAGE=cs:testing 1
 TRANSP:OPAQUE
-UID:040000008200E00074C5B7101A82E008000000003069CC91C85DD101000000000000000
-	0100000003F0B0AD71EB15249A7ABE258FD559C8E
+UID:040000008200E00074C5B7101A82E00800000000C0E9CC027E62D101000000000000000
+	0100000004FF550C034E8A543B3681D4D885A11B6
 X-ALT-DESC;FMTTYPE=text/html:<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//E
 	N">\n<HTML>\n<HEAD>\n<META NAME="Generator" CONTENT="MS Exchange Server ve
 	rsion 14.02.5004.000">\n<TITLE></TITLE>\n</HEAD>\n<BODY>\n<!-- Converted f
-	rom text/rtf format -->\n\n<P DIR=LTR><SPAN LANG="cs"><FONT FACE="Calibri"
-	>Ahojte</FONT></SPAN></P>\n\n<P DIR=LTR><SPAN LANG="cs"><FONT FACE="Calibr
-	i">Vitam novych univerzitakov</FONT></SPAN><SPAN LANG="cs"><FONT FACE="Cal
-	ibri"> a zaroven pozyvam vsetkych na dalsiu prednasku – Spring.</FONT></
-	SPAN></P>\n\n<P DIR=LTR><SPAN LANG="cs"><FONT FACE="Calibri">Tentokrat je 
-	to teda cisto Java prednaska\, ale vitany je kazdy\, kto ma zaujem</FONT><
-	/SPAN><SPAN LANG="cs"> <FONT FACE="Wingdings" SIZE=3>J</FONT></SPAN><SPAN 
-	LANG="cs"></SPAN><SPAN LANG="cs"></SPAN><SPAN LANG="cs"></SPAN></P>\n\n<P 
-	DIR=LTR><SPAN LANG="cs"><FONT FACE="Calibri">Prednasat bude Jarda Crhonek.
-	</FONT></SPAN></P>\n\n<P DIR=LTR><SPAN LANG="cs"><FONT FACE="Calibri">Dals
-	ie prednasky\, ktore su v plane (niektore sa uz budu opakovat): Git\, Mav
-	en\, SQL\, ORM\, WebServices\, Testing</FONT></SPAN></P>\n\n<P DIR=LTR><SP
-	AN LANG="cs"><B><FONT FACE="Calibri">Zaroven chcem poprosit vsetkych novyc
-	h a vsetkych\, ktori tak este neurobili:</FONT></B></SPAN></P>\n<UL DIR=LT
-	R>\n<P DIR=LTR><SPAN LANG="cs"><FONT FACE="Calibri">- nasharujte si kalend
-	are v Outlooku</FONT></SPAN><SPAN LANG="cs"> </SPAN><A HREF="http://intra
-	net/IT/manuals/outlook_share/outlook_share.html"><SPAN LANG="cs"><U><FONT 
-	COLOR="#0000FF" FACE="Calibri">http://intranet/IT/manuals/outlook_share/ou
-	tlook_share.html</FONT></U></SPAN><SPAN LANG="cs"></SPAN></A><SPAN LANG="c
-	s"></SPAN></P>\n</UL>\n<P DIR=LTR><SPAN LANG="cs"><FONT FACE="Calibri">- k
-	azdy kto nie je na fulltime\,</FONT></SPAN><SPAN LANG="cs"> <FONT FACE="Ca
-	libri">snazte sa</FONT></SPAN><SPAN LANG="cs"> <FONT FACE="Calibri">prosim
-	</FONT></SPAN><SPAN LANG="cs"> <FONT FACE="Calibri">v ramci svojich mozno
-	sti pisat do kalendara</FONT></SPAN><SPAN LANG="cs"><FONT FACE="Calibri"><
-	/FONT></SPAN><SPAN LANG="cs"> <FONT FACE="Calibri">kedy</FONT></SPAN><SPAN
-	 LANG="cs"> <FONT FACE="Calibri">ste</FONT></SPAN><SPAN LANG="cs"><FONT FA
-	CE="Calibri"> v praci – ulahci nam to planovanie</FONT></SPAN><SPAN LAN
-	G="cs"><FONT FACE="Calibri"></FONT></SPAN><SPAN LANG="cs"> <FONT FACE="Cal
-	ibri">prednasok</FONT></SPAN><SPAN LANG="cs"></SPAN></P>\n\n<P DIR=LTR><SP
-	AN LANG="cs"></SPAN></P>\n\n<P DIR=LTR><SPAN LANG="cs"><FONT FACE="Calibri
-	">Budeme sa na Vas tesit<BR>\n</FONT></SPAN><SPAN LANG="cs"></SPAN><A HREF
-	="http://www.clickypix.com/wp-content/uploads/2014/04/funny-spring-photos6
-	.jpg"><SPAN LANG="cs"><U><FONT COLOR="#0000FF" FACE="Calibri">http://www.c
-	lickypix.com/wp-content/uploads/2014/04/funny-spring-photos6.jpg</FONT></U
-	></SPAN><SPAN LANG="cs"></SPAN></A><SPAN LANG="cs"></SPAN></P>\n\n<P DIR=L
-	TR><SPAN LANG="cs"><FONT FACE="Calibri">Palo</FONT></SPAN><SPAN LANG="cs">
-	</SPAN></P>\n\n<P DIR=LTR><SPAN LANG="cs"></SPAN></P>\n\n<P DIR=LTR><SPAN 
-	LANG="cs"></SPAN></P>\n\n</BODY>\n</HTML>
-X-MICROSOFT-CDO-BUSYSTATUS:TENTATIVE
+	rom text/rtf format -->\n\n<P DIR=LTR><SPAN LANG="cs"></SPAN></P>\n\n</BOD
+	Y>\n</HTML>
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
 X-MICROSOFT-CDO-IMPORTANCE:1
 X-MICROSOFT-DISALLOW-COUNTER:FALSE
+X-MS-OLK-AUTOFILLLOCATION:TRUE
 X-MS-OLK-CONFTYPE:0
 BEGIN:VALARM
 TRIGGER:-PT15M
@@ -152,20 +85,19 @@ DESCRIPTION:Reminder
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-CATEGORIES:work
 CLASS:PUBLIC
-CREATED:20160129T114146Z
+CREATED:20160208T133554Z
 DESCRIPTION:\n
-DTEND;TZID="Central Europe Standard Time":20160205T170600
-DTSTAMP:20160205T091837Z
-DTSTART;TZID="Central Europe Standard Time":20160205T170000
-LAST-MODIFIED:20160205T091712Z
+DTEND;TZID="Central Europe Standard Time":20160208T210000
+DTSTAMP:20160208T133614Z
+DTSTART;TZID="Central Europe Standard Time":20160208T200000
+LAST-MODIFIED:20160208T133554Z
 PRIORITY:5
 SEQUENCE:0
-SUMMARY;LANGUAGE=cs:meeting 1
+SUMMARY;LANGUAGE=cs:testing 2
 TRANSP:OPAQUE
-UID:040000008200E00074C5B7101A82E00800000000908A1506985ED101000000000000000
-	0100000002F2482ECB004804E81566D2A0B6139EE
+UID:040000008200E00074C5B7101A82E00800000000A0D895067E62D101000000000000000
+	010000000F7EC8B11A2741F42ADC3768471743F4C
 X-ALT-DESC;FMTTYPE=text/html:<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//E
 	N">\n<HTML>\n<HEAD>\n<META NAME="Generator" CONTENT="MS Exchange Server ve
 	rsion 14.02.5004.000">\n<TITLE></TITLE>\n</HEAD>\n<BODY>\n<!-- Converted f
@@ -176,57 +108,10 @@ X-MICROSOFT-CDO-IMPORTANCE:1
 X-MICROSOFT-DISALLOW-COUNTER:FALSE
 X-MS-OLK-AUTOFILLLOCATION:TRUE
 X-MS-OLK-CONFTYPE:0
-END:VEVENT
-BEGIN:VEVENT
-CATEGORIES:work
-CLASS:PUBLIC
-CREATED:20160129T114146Z
-DESCRIPTION:\n
-DTEND;TZID="Central Europe Standard Time":20160205T180200
-DTSTAMP:20160205T091837Z
-DTSTART;TZID="Central Europe Standard Time":20160205T180000
-LAST-MODIFIED:20160205T091755Z
-PRIORITY:5
-SEQUENCE:0
-SUMMARY;LANGUAGE=cs:meeting 2
-TRANSP:OPAQUE
-UID:040000008200E00074C5B7101A82E0080000000080F69321985ED101000000000000000
-	0100000002F2482ECB004804E81566D2A0B6139EE
-X-ALT-DESC;FMTTYPE=text/html:<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//E
-	N">\n<HTML>\n<HEAD>\n<META NAME="Generator" CONTENT="MS Exchange Server ve
-	rsion 14.02.5004.000">\n<TITLE></TITLE>\n</HEAD>\n<BODY>\n<!-- Converted f
-	rom text/rtf format -->\n\n<P DIR=LTR><SPAN LANG="cs"></SPAN></P>\n\n</BOD
-	Y>\n</HTML>
-X-MICROSOFT-CDO-BUSYSTATUS:BUSY
-X-MICROSOFT-CDO-IMPORTANCE:1
-X-MICROSOFT-DISALLOW-COUNTER:FALSE
-X-MS-OLK-AUTOFILLLOCATION:TRUE
-X-MS-OLK-CONFTYPE:0
-END:VEVENT
-BEGIN:VEVENT
-CATEGORIES:work
-CLASS:PUBLIC
-CREATED:20160204T134543Z
-DESCRIPTION:\n
-DTEND;TZID="Central Europe Standard Time":20160205T130000
-DTSTAMP:20160205T091837Z
-DTSTART;TZID="Central Europe Standard Time":20160205T100000
-LAST-MODIFIED:20160205T084707Z
-PRIORITY:5
-SEQUENCE:0
-SUMMARY;LANGUAGE=cs:work
-TRANSP:OPAQUE
-UID:040000008200E00074C5B7101A82E0080000000010C84FBE5A5FD101000000000000000
-	0100000002856F875B4A14744A3FB6AEA5C352838
-X-ALT-DESC;FMTTYPE=text/html:<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//E
-	N">\n<HTML>\n<HEAD>\n<META NAME="Generator" CONTENT="MS Exchange Server ve
-	rsion 14.02.5004.000">\n<TITLE></TITLE>\n</HEAD>\n<BODY>\n<!-- Converted f
-	rom text/rtf format -->\n\n<P DIR=LTR><SPAN LANG="cs"></SPAN></P>\n\n</BOD
-	Y>\n</HTML>
-X-MICROSOFT-CDO-BUSYSTATUS:BUSY
-X-MICROSOFT-CDO-IMPORTANCE:1
-X-MICROSOFT-DISALLOW-COUNTER:FALSE
-X-MS-OLK-AUTOFILLLOCATION:TRUE
-X-MS-OLK-CONFTYPE:0
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:Reminder
+END:VALARM
 END:VEVENT
 END:VCALENDAR
