@@ -4,15 +4,15 @@ import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
 public class Meeting implements Comparable<Meeting>{
-    private GregorianCalendar fromTime;
-    private GregorianCalendar toTime;
+    private GregorianCalendar beginTime;
+    private GregorianCalendar endTime;
     private String name = "";
     private String organizator = "";
     private ArrayList<String> participants = new ArrayList<String>();
 
-    public Meeting(GregorianCalendar fromTime, GregorianCalendar toTime, String name, String organizator, ArrayList<String> participants) {
-        this.fromTime = fromTime;
-        this.toTime = toTime;
+    public Meeting(GregorianCalendar beginTime, GregorianCalendar endTime, String name, String organizator, ArrayList<String> participants) {
+        this.beginTime = beginTime;
+        this.endTime = endTime;
         this.name = name;
         this.organizator = organizator;
         this.participants = participants;
@@ -53,24 +53,24 @@ public class Meeting implements Comparable<Meeting>{
         this.participants.add(name);
     }
 
-    public GregorianCalendar getToTime() {
-        return toTime;
+    public GregorianCalendar getEndTime() {
+        return endTime;
     }
 
-    public GregorianCalendar getFromTime() {
-        return fromTime;
+    public GregorianCalendar getBeginTime() {
+        return beginTime;
     }
 
-    public void setFromTime(GregorianCalendar fromTime) {
-        this.fromTime = fromTime;
+    public void setBeginTime(GregorianCalendar beginTime) {
+        this.beginTime = beginTime;
     }
 
-    public void setToTime(GregorianCalendar toTime) {
-        this.toTime = toTime;
+    public void setEndTime(GregorianCalendar endTime) {
+        this.endTime = endTime;
     }
 
     public String getMeetingTime(){
-        return formatTime(fromTime) + " - " + formatTime(toTime);
+        return formatTime(beginTime) + " - " + formatTime(endTime);
     }
 
     public String formatTime(GregorianCalendar cg){
@@ -88,11 +88,14 @@ public class Meeting implements Comparable<Meeting>{
 
     @Override
     public int compareTo(Meeting another) {
-        return getFromTime().compareTo(another.getFromTime());
+        return getBeginTime().compareTo(another.getBeginTime());
     }
 
     public boolean isSame(Meeting another){
-        return this.getName().equals(another.getName()) && this.getOrganizator().equals(another.getOrganizator()) && (this.getFromTime().compareTo(another.getFromTime()) == 0);
+        return this.getName().equals(another.getName()) &&
+                this.getOrganizator().equals(another.getOrganizator()) &&
+                (this.getBeginTime().compareTo(another.getBeginTime()) == 0) &&
+                (this.getEndTime().compareTo(another.getEndTime()) == 0);
     }
 }
 

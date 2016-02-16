@@ -78,4 +78,26 @@
         <item name="android:background">@color/cnRed</item>
         <item name="android:text">@string/meeting_room_status_booked</item>
     </style>
+
+
+    <style name="CustomDialogButton">
+        <item name="android:textAllCaps">true</item>
+        <item name="android:layout_marginLeft">@dimen/meeting_fragment_control_dialog_buttons_side_margin</item>
+        <item name="android:layout_marginRight">@dimen/meeting_fragment_control_dialog_buttons_side_margin</item>
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+        <item name="android:layout_marginBottom">@dimen/meeting_fragment_control_dialog_elements_margin_bottom</item>
+        <item name="android:paddingLeft">@dimen/meeting_fragment_control_dialog_buttons_side_padding</item>
+        <item name="android:paddingRight">@dimen/meeting_fragment_control_dialog_buttons_side_padding</item>
+
+    </style>
+
+    <style name="CustomDialogTitle">
+        <!-- <item name="android:textColor">@color/cnLightBlue</item> -->
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_gravity">center_vertical|center_horizontal</item>
+        <item name="android:textSize">@dimen/meeting_fragment_control_dialog_title_font_size</item>
+        <item name="android:layout_marginBottom">@dimen/meeting_fragment_control_dialog_elements_margin_bottom</item>
+    </style>
+
+
 </resources>

@@ -43,14 +43,14 @@ public class DataParser {
                         } else if (strLine.startsWith(SUMMARY)) {
                             meeting.setName(getMeetingName(strLine));
                         } else if (strLine.startsWith(BEGIN_MEETING)) {
-                            meeting.setFromTime(getCalendar(strLine));
+                            meeting.setBeginTime(getCalendar(strLine));
                         } else if (strLine.startsWith(END_MEETING)) {
-                            meeting.setToTime(getCalendar(strLine));
+                            meeting.setEndTime(getCalendar(strLine));
                         }
 
                         strLine = dataIO.readLine();
                     }
-                    if (meeting.getToTime().compareTo(now) > 0) {
+                    if (meeting.getEndTime().compareTo(now) > 0) {
                         meetings.add(meeting);
                     }
                 }
@@ -82,14 +82,14 @@ public class DataParser {
                         } else if (strLine.startsWith(SUMMARY)) {
                             meeting.setName(getMeetingName(strLine));
                         } else if (strLine.startsWith(BEGIN_MEETING)) {
-                            meeting.setFromTime(getCalendar(strLine));
+                            meeting.setBeginTime(getCalendar(strLine));
                         } else if (strLine.startsWith(END_MEETING)) {
-                            meeting.setToTime(getCalendar(strLine));
+                            meeting.setEndTime(getCalendar(strLine));
                         }
 
                         strLine = br.readLine();
                     }
-                    if (meeting.getToTime().compareTo(now) > 0) {
+                    if (meeting.getEndTime().compareTo(now) > 0) {
                         meetings.add(meeting);
                     }
                 }

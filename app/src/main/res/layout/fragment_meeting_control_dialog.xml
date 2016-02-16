@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/controldialog"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/meeting_fragment_control_dialog_bg"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="@dimen/meeting_fragment_control_dialog_padding">
+
+
+    <TextView
+        android:id="@+id/meetingName"
+        style="@style/CustomDialogTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="ahoj" />
+
+    <Button
+        android:id="@+id/startbtn"
+        style="@style/CustomDialogButton"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/meeting_fragment_control_dialog_button_height"
+        android:background="@drawable/meeting_fragment_control_dialog_start_button"
+        android:gravity="center"
+        android:text="@string/meeting_fragment_start" />
+
+    <Button
+        android:id="@+id/finish"
+        style="@style/CustomDialogButton"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/meeting_fragment_control_dialog_button_height"
+        android:background="@drawable/meeting_fragment_control_dialog_finish_button"
+        android:text="@string/meeting_fragment_finish" />
+</LinearLayout>

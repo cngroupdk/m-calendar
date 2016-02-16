@@ -7,6 +7,7 @@ import java.util.GregorianCalendar;
 public class OutlookCalendar {
     private ArrayList<Meeting> meetings = new ArrayList<Meeting>();
 
+
     public OutlookCalendar(ArrayList<Meeting> meetings) {
         this.meetings = meetings;
     }
@@ -31,11 +32,11 @@ public class OutlookCalendar {
     }
 
     public boolean isMeetingTakingPlace(Meeting meeting, GregorianCalendar now) {
-        return meeting.getFromTime().compareTo(now) <= 0 && meeting.getToTime().compareTo(now) > 0;
+        return meeting.getBeginTime().compareTo(now) <= 0 && meeting.getEndTime().compareTo(now) > 0;
     }
 
     public boolean isUpcomingMeeting(Meeting meeting, GregorianCalendar now) {
-        return meeting.getFromTime().compareTo(now) > 0;
+        return meeting.getBeginTime().compareTo(now) > 0;
     }
 
     public ArrayList<Meeting> getUpcomingMeetings() {
@@ -49,4 +50,5 @@ public class OutlookCalendar {
         Collections.sort(upcomingMeetings);
         return upcomingMeetings;
     }
+
 }

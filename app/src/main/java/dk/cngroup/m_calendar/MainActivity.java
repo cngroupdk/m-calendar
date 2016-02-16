@@ -24,6 +24,8 @@ import java.util.GregorianCalendar;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import static dk.cngroup.m_calendar.MeetingRoomStatus.*;
+
 @EActivity(R.layout.activity_main)
 public class MainActivity extends AppCompatActivity {
 
@@ -58,8 +60,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-
-
         final Session session = Session.getInstance();
         final DataDownloader dd = new DataDownloader(getBaseContext());
         dd.getCalendarFromUrl();
@@ -79,14 +79,40 @@ public class MainActivity extends AppCompatActivity {
                     public void run() {
                         GregorianCalendar now = handler.getNow();
                         dd.getCalendarFromUrl();
+
                         if (session.getOutlookCalendar() != null) {
                             currentMeeting = session.getOutlookCalendar().getCurrentMeeting();
                             String cur = (currentMeeting == null) ? "null" : currentMeeting.toString();
+                            Log.e("C. STATE","CURRENT "+ cur);
+                            Log.e("C. STATE", "HAS FINISHED EARLIER " + session.isCurrentMeetingUntimelyFinished());
 
-                            if (currentMeeting == null) {
-                                setFree();
-                            } else {
-                                setBooked();
+                            if (currentMeeting != null && session.getMeetingRoomStatus() == OCCUPIED){
+                                changeLayout(session);
+                                // if occupied and right after cur meeting goes another - still occupied
+                                // fuck ! presne to iste .... ked ide po predcasne zrusenom meetingu hned dalsi stale je predcasne zruseny .... budem ukladat meeting? pytat sa ci su rovnake?
+                                Log.e("C. STATE",  "1" );
+
+                            }
+
+                            else if (currentMeeting != null && session.isCurrentMeetingUntimelyFinished()){
+                                session.setMeetingRoomStatus(FREE);
+                                changeLayout(session);
+                                Log.e("C. STATE", "2");
+
+                            }
+
+                            else if (currentMeeting != null){
+                                session.setMeetingRoomStatus(BOOKED);
+                                changeLayout(session);
+                                Log.e("C. STATE", "3");
+
+                            }
+                            else if (currentMeeting == null){
+                                session.setCurrentMeetingUntimelyFinished(false);
+                                session.setMeetingRoomStatus(FREE);
+                                changeLayout(session);
+                                Log.e("C. STATE", "4");
+
                             }
                         }
                     }
@@ -99,15 +125,42 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    private void changeLayout(Session session) {
+        MeetingRoomStatus meetingRoomStatus = session.getMeetingRoomStatus();
+        Log.e("C. STATE","STATUS "+ meetingRoomStatus.toString());
+        switch (meetingRoomStatus) {
+            case BOOKED:
+                setBooked();
+                break;
+            case FREE:
+                setFree();
+                break;
+            case OCCUPIED:
+                setOccupied();
+                break;
+
+        }
+    }
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
-    private void setBooked() {
+    private void setBookedLayout() {
         mainLayout.setBackground(getResources().getDrawable(R.drawable.unavailable));
         meetingFragment.fillMeeting();
         meetingFragment.getView().setVisibility(View.VISIBLE);
         roomStatus.setBackgroundColor(getResources().getColor(R.color.cnRed));
-        roomStatus.setText(getResources().getString(R.string.meeting_room_status_booked));
         upcomingMeetingsFragment.init();
+    }
+
+    private void setBooked() {
+        roomStatus.setText(getResources().getString(R.string.meeting_room_status_booked));
+        setBookedLayout();
+
+    }
+
+    private void setOccupied() {
+        roomStatus.setText(getResources().getString(R.string.meeting_room_status_occupied));
+        setBookedLayout();
+
     }
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
@@ -119,11 +172,11 @@ public class MainActivity extends AppCompatActivity {
         upcomingMeetingsFragment.init();
     }
 
-    private void saveUrl(String url){
+    private void saveUrl(String url) {
         PreferenceManager.getDefaultSharedPreferences(getBaseContext()).edit().putString("URL", url).commit();
     }
 
-    private void showAlert(String inputStr){
+    private void showAlert(String inputStr) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Set calendar's URL ");
 
@@ -143,24 +196,24 @@ public class MainActivity extends AppCompatActivity {
         builder.show();
     }
 
-    public void changeSettings(View view){
+    public void changeSettings(View view) {
         String defaultStr = "UrlWasNotSet";
-        String savedUrl = PreferenceManager.getDefaultSharedPreferences(getBaseContext()).getString("URL",defaultStr);
+        String savedUrl = PreferenceManager.getDefaultSharedPreferences(getBaseContext()).getString("URL", defaultStr);
         showAlert(savedUrl);
     }
 
-private  class CurrentMeetingHandler extends android.os.Handler {
-    private GregorianCalendar now = new GregorianCalendar();
+    private class CurrentMeetingHandler extends android.os.Handler {
+        private GregorianCalendar now = new GregorianCalendar();
 
-    @Override
-    public void handleMessage(Message msg) {
-        this.now = new GregorianCalendar();
-    }
+        @Override
+        public void handleMessage(Message msg) {
+            this.now = new GregorianCalendar();
+        }
 
-    public GregorianCalendar getNow() {
-        return now;
+        public GregorianCalendar getNow() {
+            return now;
+        }
     }
-}
 
 
 }

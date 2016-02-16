@@ -15,6 +15,10 @@
     <string name="action_settings">Settings</string>
     <string name="meeting_room_status_free">Meeting room is FREE</string>
     <string name="meeting_room_status_booked">Meeting room is BOOKED</string>
+    <string name="meeting_room_status_occupied">Meeting room is OCCUPIED</string>
+
+    <string name="meeting_fragment_start">start meeting</string>
+    <string name="meeting_fragment_finish">finish meeting</string>
 
 
 

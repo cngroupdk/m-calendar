@@ -1,6 +1,12 @@
 <resources>
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="meeting_fragment_control_dialog_padding">35dp</dimen>
+    <dimen name="meeting_fragment_control_dialog_buttons_side_padding">55dp</dimen>
+    <dimen name="meeting_fragment_control_dialog_buttons_side_margin">35dp</dimen>
+    <dimen name="meeting_fragment_control_dialog_elements_margin_bottom">22dp</dimen>
+    <dimen name="meeting_fragment_control_dialog_title_font_size">28sp</dimen>
+    <dimen name="meeting_fragment_control_dialog_button_height">100dp</dimen>
     <dimen name="participant_label_size">92dp</dimen>
     <dimen name="participant_label_right_margin">5dp</dimen>
     <dimen name="upcoming_meeting_row_height">30dp</dimen>

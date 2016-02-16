@@ -1,10 +1,18 @@
 package dk.cngroup.m_calendar;
 
+import android.annotation.TargetApi;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.Fragment;
+import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import org.androidannotations.annotations.AfterViews;
@@ -32,15 +40,19 @@ public class MeetingFragment extends Fragment {
     @ViewById (R.id.meetingParticipants)
     TextView meetingParticipants;
 
+    @ViewById (R.id.meetingFragmentMain)
+    LinearLayout meetingFragmentLayout;
+
     private ArrayList<String> participants;
 
     private String textMoreParticipants;
+
+    private Meeting currentMeeting = null;
 
     @AfterViews
     public void fillMeeting(){
         Log.e("LIFE ", "MET FRAG. INIT");
         Session session = Session.getInstance();
-        Meeting currentMeeting = null;
         OutlookCalendar outlookCalendar = session.getOutlookCalendar();
         if (outlookCalendar != null){
             currentMeeting = outlookCalendar.getCurrentMeeting();
@@ -67,6 +79,13 @@ public class MeetingFragment extends Fragment {
             organizedBy.setText(meeting.getOrganizator());
             meetingName.setText(meeting.getName());
             meetingTime.setText(meeting.getMeetingTime());
+
+            meetingFragmentLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    openControlDialog();
+                }
+            });
         }
 
     }
@@ -79,6 +98,46 @@ public class MeetingFragment extends Fragment {
         builder.setNeutralButton(R.string.okButton, null);
         AlertDialog alert = builder.create();
         alert.show();
+    }
+
+    public void openControlDialog(){
+        final Dialog dialog = new Dialog(getActivity());
+        final Session session = Session.getInstance();
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.fragment_meeting_control_dialog);
+
+        TextView meetingName = (TextView) dialog.findViewById(R.id.meetingName);
+        if (currentMeeting != null){
+            meetingName.setText(meeting.getName());
+
+        }
+
+
+       Button startButton = (Button) dialog.findViewById(R.id.startbtn);
+        startButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                session.setMeetingRoomStatus(MeetingRoomStatus.OCCUPIED);
+                dialog.cancel();
+            }
+        });
+
+        Button finishButton = (Button) dialog.findViewById(R.id.finish);
+        finishButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                session.setMeetingRoomStatus(MeetingRoomStatus.FREE);
+                session.setCurrentMeetingUntimelyFinished(true);
+                session.setUntimelyFinishedMeeting(meeting);
+                dialog.cancel();
+
+            }
+        });
+
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.show();
+
+
     }
 
 

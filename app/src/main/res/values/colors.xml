@@ -11,4 +11,11 @@
     <color name="white">#ffffff</color>
     <color name="testing">#ff9600</color>
     <color name="meeting_fragment_background">#66073453</color>
+    <color name="meeting_fragment_control_dialog_bg">#c7c6c7</color>
+    <color name="meeting_fragment_control_dialog_stroke">#787778</color>
+    <color name="meeting_fragment_control_dialog_startbtn">#bbd78f</color>
+    <color name="meeting_fragment_control_dialog_finishbtn">#e65e5e</color>
+
+
+    <color name="transparent">#0014a0ff</color>
 </resources>
