@@ -12,15 +12,6 @@ public class OutlookCalendar {
         this.meetings = meetings;
     }
 
-    public ArrayList<Meeting> getMeetings() {
-        Collections.sort(this.meetings);
-        return meetings;
-    }
-
-    public void setMeetings(ArrayList<Meeting> meetings) {
-        this.meetings = meetings;
-    }
-
     public Meeting getCurrentMeeting() {
         GregorianCalendar now = new GregorianCalendar();
         for (Meeting meeting : this.meetings) {

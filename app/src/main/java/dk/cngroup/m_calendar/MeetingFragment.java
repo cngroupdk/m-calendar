@@ -24,7 +24,6 @@ import java.util.GregorianCalendar;
 
 @EFragment(R.layout.fragment_meeting)
 public class MeetingFragment extends Fragment {
-    Meeting meeting = new Meeting(new GregorianCalendar(), new GregorianCalendar(), "", "Unknown", new ArrayList<String>());
 
     private static final int NUMBER_OF_DISPLAED_LABELS = 0;
 
@@ -45,8 +44,6 @@ public class MeetingFragment extends Fragment {
 
     private ArrayList<String> participants;
 
-    private String textMoreParticipants;
-
     private Meeting currentMeeting = null;
 
     @AfterViews
@@ -54,15 +51,15 @@ public class MeetingFragment extends Fragment {
         Log.e("LIFE ", "MET FRAG. INIT");
         Session session = Session.getInstance();
         OutlookCalendar outlookCalendar = session.getOutlookCalendar();
+
         if (outlookCalendar != null){
             currentMeeting = outlookCalendar.getCurrentMeeting();
         }
         if (currentMeeting != null){
-            meeting = currentMeeting;
-            Log.e("LIFE ","Current " + meeting.toString());
-            participants = meeting.getParticipants();
-            int numberOfParticipants = meeting.getNumberOfParticipants();
+            participants = currentMeeting.getParticipants();
+            int numberOfParticipants = currentMeeting.getNumberOfParticipants();
             int rest = numberOfParticipants - NUMBER_OF_DISPLAED_LABELS;
+            String textMoreParticipants;
             if (rest != 0) {
                 textMoreParticipants = getActivity().getBaseContext().getResources().getString(R.string.more_participants, String.valueOf(rest));
                 meetingParticipants.setPaintFlags(meetingParticipants.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
@@ -74,11 +71,9 @@ public class MeetingFragment extends Fragment {
                 });
                 meetingParticipants.setText(textMoreParticipants);
             }
-
-            String textOrganizator = getActivity().getBaseContext().getResources().getString(R.string.organizedBy, meeting.getOrganizator());
-            organizedBy.setText(meeting.getOrganizator());
-            meetingName.setText(meeting.getName());
-            meetingTime.setText(meeting.getMeetingTime());
+            organizedBy.setText(currentMeeting.getOrganizator());
+            meetingName.setText(currentMeeting.getName());
+            meetingTime.setText(currentMeeting.getMeetingTime());
 
             meetingFragmentLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -108,7 +103,7 @@ public class MeetingFragment extends Fragment {
 
         TextView meetingName = (TextView) dialog.findViewById(R.id.meetingName);
         if (currentMeeting != null){
-            meetingName.setText(meeting.getName());
+            meetingName.setText(currentMeeting.getName());
 
         }
 
@@ -117,7 +112,8 @@ public class MeetingFragment extends Fragment {
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                session.setMeetingRoomStatus(MeetingRoomStatus.OCCUPIED);
+                session.setCurrentState(new CurrentState(currentMeeting));
+                session.getCurrentState().setIsStarted(true);
                 dialog.cancel();
             }
         });
@@ -126,9 +122,8 @@ public class MeetingFragment extends Fragment {
         finishButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                session.setMeetingRoomStatus(MeetingRoomStatus.FREE);
-                session.setCurrentMeetingUntimelyFinished(true);
-                session.setUntimelyFinishedMeeting(meeting);
+                session.setCurrentState(new CurrentState(currentMeeting));
+                session.getCurrentState().setIsFinished(true);
                 dialog.cancel();
 
             }

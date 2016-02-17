@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
         int initialDelay = 1000;
         final CurrentMeetingHandler handler = new CurrentMeetingHandler();
 
-        int period = 5000; // 5 sec
+        int period = 60000; // 60 sec 5000 = 5 sec
         Timer timer = new Timer();
         TimerTask task = new TimerTask() {
             public void run() {
@@ -83,36 +83,39 @@ public class MainActivity extends AppCompatActivity {
                         if (session.getOutlookCalendar() != null) {
                             currentMeeting = session.getOutlookCalendar().getCurrentMeeting();
                             String cur = (currentMeeting == null) ? "null" : currentMeeting.toString();
-                            Log.e("C. STATE","CURRENT "+ cur);
-                            Log.e("C. STATE", "HAS FINISHED EARLIER " + session.isCurrentMeetingUntimelyFinished());
+                            //Log.e("C. STATE", cur);
+                            CurrentState cs = session.getCurrentState();
 
-                            if (currentMeeting != null && session.getMeetingRoomStatus() == OCCUPIED){
-                                changeLayout(session);
-                                // if occupied and right after cur meeting goes another - still occupied
-                                // fuck ! presne to iste .... ked ide po predcasne zrusenom meetingu hned dalsi stale je predcasne zruseny .... budem ukladat meeting? pytat sa ci su rovnake?
-                                Log.e("C. STATE",  "1" );
+                            if (cs != null && currentMeeting != null) {
+                                if (cs.getCurrentMeeting() != null) {
+                                    Log.e("C. STATE", "0");
+                                    if (currentMeeting.equals(cs.getCurrentMeeting())) {
+                                        Log.e("C. STATE", "meetings are same");
+                                        if (cs.isStarted()) {
+                                            Log.e("C. STATE", "meeting is started");
+                                            session.setMeetingRoomStatus(OCCUPIED);
+                                            changeLayout(session);
 
-                            }
+                                        } else if (cs.isFinished()) {
+                                            Log.e("C. STATE", "meeting is finished");
+                                            session.setMeetingRoomStatus(FREE);
+                                            changeLayout(session);
 
-                            else if (currentMeeting != null && session.isCurrentMeetingUntimelyFinished()){
-                                session.setMeetingRoomStatus(FREE);
-                                changeLayout(session);
-                                Log.e("C. STATE", "2");
-
-                            }
-
-                            else if (currentMeeting != null){
+                                        }
+                                    } else {
+                                        Log.e("C. STATE", "meetings are NOT same");
+                                        session.setCurrentState(null);
+                                    }
+                                }
+                            } else if (currentMeeting != null) {
                                 session.setMeetingRoomStatus(BOOKED);
                                 changeLayout(session);
                                 Log.e("C. STATE", "3");
 
-                            }
-                            else if (currentMeeting == null){
-                                session.setCurrentMeetingUntimelyFinished(false);
+                            } else if (currentMeeting == null) {
                                 session.setMeetingRoomStatus(FREE);
                                 changeLayout(session);
                                 Log.e("C. STATE", "4");
-
                             }
                         }
                     }
@@ -127,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void changeLayout(Session session) {
         MeetingRoomStatus meetingRoomStatus = session.getMeetingRoomStatus();
-        Log.e("C. STATE","STATUS "+ meetingRoomStatus.toString());
+        Log.e("C. STATE", "STATUS " + meetingRoomStatus.toString());
         switch (meetingRoomStatus) {
             case BOOKED:
                 setBooked();
@@ -179,12 +182,10 @@ public class MainActivity extends AppCompatActivity {
     private void showAlert(String inputStr) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Set calendar's URL ");
-
         final EditText input = new EditText(this);
         input.setInputType(InputType.TYPE_CLASS_TEXT);
         input.setText(inputStr);
         builder.setView(input);
-
 
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override

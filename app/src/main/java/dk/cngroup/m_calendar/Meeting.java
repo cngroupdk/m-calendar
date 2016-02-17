@@ -3,7 +3,7 @@ package dk.cngroup.m_calendar;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
-public class Meeting implements Comparable<Meeting>{
+public class Meeting implements Comparable<Meeting> {
     private GregorianCalendar beginTime;
     private GregorianCalendar endTime;
     private String name = "";
@@ -18,9 +18,10 @@ public class Meeting implements Comparable<Meeting>{
         this.participants = participants;
     }
 
-    public Meeting(){}
+    public Meeting() {
+    }
 
-    public int getNumberOfParticipants(){
+    public int getNumberOfParticipants() {
         return participants.size();
     }
 
@@ -45,11 +46,7 @@ public class Meeting implements Comparable<Meeting>{
         this.organizator = organizator;
     }
 
-    public void setParticipants(ArrayList<String> participants) {
-        this.participants = participants;
-    }
-
-    public void addParticipant(String name){
+    public void addParticipant(String name) {
         this.participants.add(name);
     }
 
@@ -69,14 +66,14 @@ public class Meeting implements Comparable<Meeting>{
         this.endTime = endTime;
     }
 
-    public String getMeetingTime(){
+    public String getMeetingTime() {
         return formatTime(beginTime) + " - " + formatTime(endTime);
     }
 
-    public String formatTime(GregorianCalendar cg){
-        int minute =  cg.get(GregorianCalendar.MINUTE);
-        String minutes = (minute < 9 ) ?  "0" + minute+ "" : minute + "";
-        return cg.get(GregorianCalendar.HOUR_OF_DAY)+ "" + ":" + minutes ;
+    public String formatTime(GregorianCalendar cg) {
+        int minute = cg.get(GregorianCalendar.MINUTE);
+        String minutes = (minute < 9) ? "0" + minute + "" : minute + "";
+        return cg.get(GregorianCalendar.HOUR_OF_DAY) + "" + ":" + minutes;
     }
 
     @Override
@@ -91,11 +88,20 @@ public class Meeting implements Comparable<Meeting>{
         return getBeginTime().compareTo(another.getBeginTime());
     }
 
-    public boolean isSame(Meeting another){
+    private void ignoreMilliseconds(Meeting m) {
+        m.getBeginTime().set(GregorianCalendar.MILLISECOND, 0);
+        m.getEndTime().set(GregorianCalendar.MILLISECOND, 0);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        Meeting another = (Meeting) o;
+        ignoreMilliseconds(this);
+        ignoreMilliseconds(another);
         return this.getName().equals(another.getName()) &&
                 this.getOrganizator().equals(another.getOrganizator()) &&
-                (this.getBeginTime().compareTo(another.getBeginTime()) == 0) &&
-                (this.getEndTime().compareTo(another.getEndTime()) == 0);
+                this.getBeginTime().equals(another.getBeginTime()) &&
+                this.getEndTime().equals(another.getEndTime());
     }
 }
 

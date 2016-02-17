@@ -3,31 +3,22 @@ package dk.cngroup.m_calendar;
 import java.util.ArrayList;
 
 public final class Session {
-
-    private MeetingRoomStatus meetingRoomStatus = MeetingRoomStatus.BOOKED;
-    private boolean currentMeetingUntimelyFinished = false;
-    private Meeting untimelyFinishedMeeting = null;
-
-    public boolean isCurrentMeetingUntimelyFinished() {
-        return currentMeetingUntimelyFinished;
-    }
-
-    public Meeting getUntimelyFinishedMeeting() {
-        return untimelyFinishedMeeting;
-    }
-
-    public void setUntimelyFinishedMeeting(Meeting untimelyFinishedMeeting) {
-        this.untimelyFinishedMeeting = untimelyFinishedMeeting;
-    }
-
-    public void setCurrentMeetingUntimelyFinished(boolean currentMeetingUntimelyFinished) {
-        this.currentMeetingUntimelyFinished = currentMeetingUntimelyFinished;
-    }
-
     private static final Session INSTANCE = new Session();
     private OutlookCalendar outlookCalendar;
 
+    private MeetingRoomStatus meetingRoomStatus = MeetingRoomStatus.BOOKED;
+
+    private CurrentState currentState = null;
+
     private Session() {
+    }
+
+    public CurrentState getCurrentState() {
+        return currentState;
+    }
+
+    public void setCurrentState(CurrentState currentState) {
+        this.currentState = currentState;
     }
 
     public static Session getInstance() {
