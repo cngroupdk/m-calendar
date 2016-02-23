@@ -1,4 +1,4 @@
-package dk.cngroup.m_calendar;
+package dk.cngroup.m_calendar.entity;
 
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
@@ -7,34 +7,34 @@ public class Meeting implements Comparable<Meeting> {
     private GregorianCalendar beginTime;
     private GregorianCalendar endTime;
     private String name = "";
-    private String organizator = "";
-    private ArrayList<String> participants = new ArrayList<String>();
+    private Person organizator;
+    private ArrayList<Person> attendees = new ArrayList<Person>();
 
-    public Meeting(GregorianCalendar beginTime, GregorianCalendar endTime, String name, String organizator, ArrayList<String> participants) {
+    public Meeting(GregorianCalendar beginTime, GregorianCalendar endTime, String name, Person organizator, ArrayList<Person> attendees) {
         this.beginTime = beginTime;
         this.endTime = endTime;
         this.name = name;
         this.organizator = organizator;
-        this.participants = participants;
+        this.attendees = attendees;
     }
 
     public Meeting() {
     }
 
     public int getNumberOfParticipants() {
-        return participants.size();
+        return attendees.size();
     }
 
     public String getName() {
         return name;
     }
 
-    public String getOrganizator() {
+    public Person getOrganizator() {
         return organizator;
     }
 
-    public ArrayList<String> getParticipants() {
-        return participants;
+    public ArrayList<Person> getAttendees() {
+        return attendees;
     }
 
 
@@ -42,12 +42,12 @@ public class Meeting implements Comparable<Meeting> {
         this.name = name;
     }
 
-    public void setOrganizator(String organizator) {
+    public void setOrganizator(Person organizator) {
         this.organizator = organizator;
     }
 
-    public void addParticipant(String name) {
-        this.participants.add(name);
+    public void addParticipant(Person name) {
+        this.attendees.add(name);
     }
 
     public GregorianCalendar getEndTime() {
@@ -99,7 +99,6 @@ public class Meeting implements Comparable<Meeting> {
         ignoreMilliseconds(this);
         ignoreMilliseconds(another);
         return this.getName().equals(another.getName()) &&
-                this.getOrganizator().equals(another.getOrganizator()) &&
                 this.getBeginTime().equals(another.getBeginTime()) &&
                 this.getEndTime().equals(another.getEndTime());
     }

@@ -9,9 +9,8 @@
         android:layout_height="match_parent">
 
         <TextView style="@style/CircleStyledTextView"
-            android:layout_width="@dimen/participant_label_size"
-            android:layout_height="@dimen/participant_label_size"
-            android:text="@string/default_name"
+            android:layout_width="@dimen/upcoming_meeting_organizer_label_size"
+            android:layout_height="@dimen/upcoming_meeting_organizer_label_size"
             android:id="@+id/organizer" />
 
         <LinearLayout
@@ -22,13 +21,11 @@
             <TextView style="@style/UpcomingMeetingTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/time"
                 android:id="@+id/meetingTime" />
 
             <TextView style="@style/UpcomingMeetingName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/meeting_name"
                 android:id="@+id/nameOfMeeting"
            />
         </LinearLayout>

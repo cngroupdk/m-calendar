@@ -1,14 +1,13 @@
 package dk.cngroup.m_calendar;
 
 import android.app.Fragment;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
+import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.ScrollView;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Click;
@@ -18,6 +17,9 @@ import org.androidannotations.annotations.ViewById;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import dk.cngroup.m_calendar.dialog.MeetingDialog;
+import dk.cngroup.m_calendar.entity.Meeting;
+import dk.cngroup.m_calendar.entity.OutlookCalendar;
 import dk.cngroup.m_calendar.layout.MeetingAdapter;
 
 
@@ -26,9 +28,6 @@ public class UpcomingMeetingsFragment extends Fragment {
 
     @ViewById(R.id.listView)
     ListView listview;
-
-    @ViewById(R.id.scrollView)
-    ScrollView scrollView;
 
     @ViewById(R.id.upButton)
     ImageButton upButton;
@@ -41,7 +40,6 @@ public class UpcomingMeetingsFragment extends Fragment {
 
     @AfterViews
     public void init() {
-        Log.e("LIFE ", "UPC FRAG INIT");
         ArrayList<Meeting> upcomingMeetings = new ArrayList<Meeting>();
         Session session = Session.getInstance();
         OutlookCalendar outlookCalendar = session.getOutlookCalendar();
@@ -64,26 +62,30 @@ public class UpcomingMeetingsFragment extends Fragment {
                 public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
                 }
             });
+
+
+            listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Meeting selectedMeeting = (Meeting) parent.getItemAtPosition(position);
+                    new MeetingDialog(getActivity(), selectedMeeting);
+                }
+            });
         }
     }
 
     @Click(R.id.upButton)
-    public void scrollUp(View v) {
+    public void scrollUp() {
         controlButtons();
-        // scroll po jednom
         int index = listview.getFirstVisiblePosition();
         listview.setSelectionFromTop(index, HEIGHT_OF_ROW);
-        //listview.smoothScrollToPosition(index - 1);
     }
 
     @Click(R.id.downButton)
-    public void scrollDown(View v) {
+    public void scrollDown() {
         controlButtons();
         int index = listview.getLastVisiblePosition();
-        //listview.setScrollY(index*heightOfRow);
-        //listview.smoothScrollToPosition(index + 1);
         listview.setSelectionFromTop(index, HEIGHT_OF_ROW);
-        //listview.setSelection()  setSelection(index) so the display will jump to the index you want;
     }
 
     private void setListViewHeightBasedOnChildren(ListView listView) {
@@ -98,27 +100,20 @@ public class UpcomingMeetingsFragment extends Fragment {
         if (listview.getAdapter().getCount() <= NUMBER_OF_DISPLAYED_MEETINGS) {
             upButton.setVisibility(View.INVISIBLE);
             downButton.setVisibility(View.INVISIBLE);
-            Log.e("SCROLL LAYOUT", "0");
         } else {
             int firstVisible = listview.getFirstVisiblePosition();
             int lastVisible = listview.getLastVisiblePosition();
-            Log.e("SCROLL LAYOUT", "FIRST " + firstVisible + " LAST " + lastVisible);
             if (firstVisible == 0) {
-                Log.e("SCROLL LAYOUT", "1");
                 upButton.setVisibility(View.INVISIBLE);
                 downButton.setVisibility(View.VISIBLE);
             } else if (lastVisible == listview.getAdapter().getCount() - 1) {
-                Log.e("SCROLL LAYOUT", "2");
                 upButton.setVisibility(View.VISIBLE);
                 downButton.setVisibility(View.INVISIBLE);
             } else {
-                Log.e("SCROLL LAYOUT", "3");
                 upButton.setVisibility(View.VISIBLE);
                 downButton.setVisibility(View.VISIBLE);
             }
         }
-        Log.e("SCROLL LAYOUT", "-----------------------");
-
 
     }
 

@@ -15,6 +15,7 @@
     <color name="meeting_fragment_control_dialog_stroke">#787778</color>
     <color name="meeting_fragment_control_dialog_startbtn">#bbd78f</color>
     <color name="meeting_fragment_control_dialog_finishbtn">#e65e5e</color>
+    <color name="skypeButtonBg">#00aff0</color>
 
 
     <color name="transparent">#0014a0ff</color>

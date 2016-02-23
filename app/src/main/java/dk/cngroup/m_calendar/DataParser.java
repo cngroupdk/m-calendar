@@ -1,7 +1,5 @@
 package dk.cngroup.m_calendar;
 
-import android.content.Context;
-
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
@@ -9,59 +7,20 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
+import dk.cngroup.m_calendar.entity.Meeting;
+import dk.cngroup.m_calendar.entity.Person;
+
 public class DataParser {
     public DataParser() {
     }
 
-    private final String BEGIN_EVENT = "BEGIN:VEVENT";
-    private final String END_EVENT = "END:VEVENT";
-    private final String SUMMARY = "SUMMARY";
-    private final String ORGANIZER = "ORGANIZER";
-    private final String BEGIN_MEETING = "DTSTART";
-    private final String END_MEETING = "DTEND";
-    private final String ATTENDEE = "ATTENDEE";
-
-
-    public ArrayList<Meeting> getMeetingsFromFile(Context context) {
-        ArrayList<Meeting> meetings = new ArrayList<Meeting>();
-        InputStream is;
-        GregorianCalendar now = new GregorianCalendar();
-
-        try {
-            is = context.getResources().openRawResource(R.raw.calendar1);
-            BufferedReader dataIO = new BufferedReader(new InputStreamReader(is));
-            String strLine = dataIO.readLine();
-            while (strLine != null) {
-                strLine = dataIO.readLine();
-                if (strLine.trim().equals(BEGIN_EVENT)) {
-                    Meeting meeting = new Meeting();
-                    while (!strLine.trim().equals(END_EVENT)) {
-                        if (strLine.startsWith(ORGANIZER)) {
-                            meeting.setOrganizator(getNameFromString(strLine));
-                        } else if (strLine.startsWith(ATTENDEE)) {
-                            meeting.addParticipant(getNameFromString(strLine));
-                        } else if (strLine.startsWith(SUMMARY)) {
-                            meeting.setName(getMeetingName(strLine));
-                        } else if (strLine.startsWith(BEGIN_MEETING)) {
-                            meeting.setBeginTime(getCalendar(strLine));
-                        } else if (strLine.startsWith(END_MEETING)) {
-                            meeting.setEndTime(getCalendar(strLine));
-                        }
-
-                        strLine = dataIO.readLine();
-                    }
-                    if (meeting.getEndTime().compareTo(now) > 0) {
-                        meetings.add(meeting);
-                    }
-                }
-            }
-
-            dataIO.close();
-            is.close();
-        } catch (Exception e) {
-        }
-        return meetings;
-    }
+    private static final String BEGIN_EVENT = "BEGIN:VEVENT";
+    private static final String END_EVENT = "END:VEVENT";
+    private static final String SUMMARY = "SUMMARY";
+    private static final String ORGANIZER = "ORGANIZER";
+    private static final String BEGIN_MEETING = "DTSTART";
+    private static final String END_MEETING = "DTEND";
+    private static final  String ATTENDEE = "ATTENDEE";
 
     public ArrayList<Meeting> getMeetingsFromString(String stringCalendar) {
         ArrayList<Meeting> meetings = new ArrayList<Meeting>();
@@ -76,9 +35,9 @@ public class DataParser {
                     Meeting meeting = new Meeting();
                     while (!strLine.trim().equals(END_EVENT)) {
                         if (strLine.startsWith(ORGANIZER)) {
-                            meeting.setOrganizator(getNameFromString(strLine));
+                            meeting.setOrganizator(new Person(getNameFromString(strLine)));
                         } else if (strLine.startsWith(ATTENDEE)) {
-                            meeting.addParticipant(getNameFromString(strLine));
+                            meeting.addParticipant(new Person(getNameFromString(strLine)));
                         } else if (strLine.startsWith(SUMMARY)) {
                             meeting.setName(getMeetingName(strLine));
                         } else if (strLine.startsWith(BEGIN_MEETING)) {

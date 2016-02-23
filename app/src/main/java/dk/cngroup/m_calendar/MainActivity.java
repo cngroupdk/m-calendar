@@ -19,10 +19,17 @@ import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.FragmentById;
 import org.androidannotations.annotations.ViewById;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.GregorianCalendar;
+import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
+
+import dk.cngroup.m_calendar.entity.CurrentState;
+import dk.cngroup.m_calendar.entity.Meeting;
 
 import static dk.cngroup.m_calendar.MeetingRoomStatus.*;
 
@@ -42,6 +49,9 @@ public class MainActivity extends AppCompatActivity {
     UpcomingMeetingsFragment upcomingMeetingsFragment;
 
     private Meeting currentMeeting = null;
+    private static final int PERIOD = 5000;
+    private static final int INITIAL_DELAY = 1000;
+    public static final String URL_KEY = "URL";
 
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
@@ -49,73 +59,70 @@ public class MainActivity extends AppCompatActivity {
     public void fillMeeting() {
 
         final String PREFS_NAME = "MyPrefsFile";
+        final String IS_FIRST_RUN_KEY = "isFirstRun";
 
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
 
-        if (settings.getBoolean("isFirstRun", true)) {
-            Log.e("FIRST_RUN", "First timeee <3");
-            //PreferenceManager.getDefaultSharedPreferences(getBaseContext()).getString("URL", "UrlWasNotSet");
+
+
+
+        if (settings.getBoolean(IS_FIRST_RUN_KEY, true)) {
             showAlert("");
-            settings.edit().putBoolean("isFirstRun", false).commit();
+            settings.edit().putBoolean(IS_FIRST_RUN_KEY, false).apply();
         }
 
 
         final Session session = Session.getInstance();
-        final DataDownloader dd = new DataDownloader(getBaseContext());
-        dd.getCalendarFromUrl();
+        final DataDownloader dataDownloader = new DataDownloader(getBaseContext());
+        dataDownloader.getCalendarFromUrl();
 
         if (session.getOutlookCalendar() == null) {
             setFree();
         }
-        int initialDelay = 1000;
+
         final CurrentMeetingHandler handler = new CurrentMeetingHandler();
 
-        int period = 60000; // 60 sec 5000 = 5 sec
+
         Timer timer = new Timer();
         TimerTask task = new TimerTask() {
             public void run() {
                 handler.handleMessage(null);
                 final Runnable myRunnable = new Runnable() {
                     public void run() {
-                        GregorianCalendar now = handler.getNow();
-                        dd.getCalendarFromUrl();
+                      //  GregorianCalendar now = handler.getNow();
+                        dataDownloader.getCalendarFromUrl();
 
                         if (session.getOutlookCalendar() != null) {
                             currentMeeting = session.getOutlookCalendar().getCurrentMeeting();
-                            String cur = (currentMeeting == null) ? "null" : currentMeeting.toString();
-                            //Log.e("C. STATE", cur);
                             CurrentState cs = session.getCurrentState();
 
                             if (cs != null && currentMeeting != null) {
                                 if (cs.getCurrentMeeting() != null) {
-                                    Log.e("C. STATE", "0");
                                     if (currentMeeting.equals(cs.getCurrentMeeting())) {
-                                        Log.e("C. STATE", "meetings are same");
+                                        Log.e("CURRENT_STATE", "meetings are same");
                                         if (cs.isStarted()) {
-                                            Log.e("C. STATE", "meeting is started");
+                                            Log.e("CURRENT_STATE", "meeting is started");
                                             session.setMeetingRoomStatus(OCCUPIED);
                                             changeLayout(session);
 
                                         } else if (cs.isFinished()) {
-                                            Log.e("C. STATE", "meeting is finished");
+                                            Log.e("CURRENT_STATE", "meeting is finished");
                                             session.setMeetingRoomStatus(FREE);
                                             changeLayout(session);
 
                                         }
                                     } else {
-                                        Log.e("C. STATE", "meetings are NOT same");
+                                        Log.e("CURRENT_STATE", "meetings are NOT same");
                                         session.setCurrentState(null);
                                     }
                                 }
                             } else if (currentMeeting != null) {
                                 session.setMeetingRoomStatus(BOOKED);
                                 changeLayout(session);
-                                Log.e("C. STATE", "3");
 
-                            } else if (currentMeeting == null) {
+                            } else  {
                                 session.setMeetingRoomStatus(FREE);
                                 changeLayout(session);
-                                Log.e("C. STATE", "4");
                             }
                         }
                     }
@@ -123,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
                 handler.post(myRunnable);
             }
         };
-        timer.scheduleAtFixedRate(task, initialDelay, period);
+        timer.scheduleAtFixedRate(task, INITIAL_DELAY, PERIOD);
 
     }
 
@@ -149,7 +156,9 @@ public class MainActivity extends AppCompatActivity {
     private void setBookedLayout() {
         mainLayout.setBackground(getResources().getDrawable(R.drawable.unavailable));
         meetingFragment.fillMeeting();
-        meetingFragment.getView().setVisibility(View.VISIBLE);
+        if (meetingFragment.getView() != null) {
+            meetingFragment.getView().setVisibility(View.VISIBLE);
+        }
         roomStatus.setBackgroundColor(getResources().getColor(R.color.cnRed));
         upcomingMeetingsFragment.init();
     }
@@ -157,37 +166,38 @@ public class MainActivity extends AppCompatActivity {
     private void setBooked() {
         roomStatus.setText(getResources().getString(R.string.meeting_room_status_booked));
         setBookedLayout();
-
     }
 
     private void setOccupied() {
         roomStatus.setText(getResources().getString(R.string.meeting_room_status_occupied));
         setBookedLayout();
-
     }
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     private void setFree() {
         mainLayout.setBackground(getResources().getDrawable(R.drawable.available));
-        meetingFragment.getView().setVisibility(View.GONE);
+        if (meetingFragment.getView() != null) {
+            meetingFragment.getView().setVisibility(View.GONE);
+        }
         roomStatus.setBackgroundColor(getResources().getColor(R.color.cnLightBlue));
         roomStatus.setText(getResources().getString(R.string.meeting_room_status_free));
         upcomingMeetingsFragment.init();
     }
 
     private void saveUrl(String url) {
-        PreferenceManager.getDefaultSharedPreferences(getBaseContext()).edit().putString("URL", url).commit();
+        PreferenceManager.getDefaultSharedPreferences(getBaseContext()).edit().putString(URL_KEY, url).commit();
     }
 
     private void showAlert(String inputStr) {
+        String title = getResources().getString(R.string.url_dialog_title);
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Set calendar's URL ");
+        builder.setTitle(title);
         final EditText input = new EditText(this);
         input.setInputType(InputType.TYPE_CLASS_TEXT);
         input.setText(inputStr);
         builder.setView(input);
 
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(getString(R.string.okButton), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 saveUrl(input.getText().toString().trim());
@@ -198,8 +208,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void changeSettings(View view) {
-        String defaultStr = "UrlWasNotSet";
-        String savedUrl = PreferenceManager.getDefaultSharedPreferences(getBaseContext()).getString("URL", defaultStr);
+        String defaultStr = getResources().getString(R.string.url_dialog_default_url);
+        String savedUrl = PreferenceManager.getDefaultSharedPreferences(getBaseContext()).getString(URL_KEY, defaultStr);
         showAlert(savedUrl);
     }
 

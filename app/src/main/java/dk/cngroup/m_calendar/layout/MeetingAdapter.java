@@ -7,7 +7,7 @@ import android.widget.ArrayAdapter;
 
 import java.util.List;
 
-import dk.cngroup.m_calendar.Meeting;
+import dk.cngroup.m_calendar.entity.Meeting;
 import dk.cngroup.m_calendar.R;
 import dk.cngroup.m_calendar.UpcomingMeeting;
 import dk.cngroup.m_calendar.UpcomingMeeting_;

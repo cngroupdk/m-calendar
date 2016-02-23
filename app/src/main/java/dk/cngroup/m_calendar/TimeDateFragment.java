@@ -57,10 +57,10 @@ public class TimeDateFragment extends Fragment {
 
         @Override
         public void handleMessage(Message msg) {
-            long mTimeMilisec = System.currentTimeMillis();
-            Date resultdate = new Date(mTimeMilisec);
-            date = dateFormat.format(resultdate);
-            time = timeFormat.format(resultdate);
+            long currentMillis = System.currentTimeMillis();
+            Date resultDate = new Date(currentMillis);
+            date = dateFormat.format(resultDate);
+            time = timeFormat.format(resultDate);
         }
 
         public String getTime() {

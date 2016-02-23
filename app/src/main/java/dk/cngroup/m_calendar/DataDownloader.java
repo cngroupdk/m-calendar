@@ -12,6 +12,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
+import dk.cngroup.m_calendar.entity.Meeting;
+
 public class DataDownloader {
     private URL rssUrl ;
     private String rssResult = "";
@@ -30,26 +32,24 @@ public class DataDownloader {
             protected String doInBackground(Object... params) {
                 try {
                     Log.e("SERVICE", "do in Background");
-                    String defaultStr = "UrlWasNotSet";
-                   // defaultStr = "http://davinci.fmph.uniba.sk/~bachronikov2/testing/calendar1.ics";
-                    String url = PreferenceManager.getDefaultSharedPreferences(context).getString("URL",defaultStr );
+                   // String defaultStr = "UrlWasNotSet";
+                    String defaultStr = context.getResources().getString(R.string.url_dialog_default_url);
+                    String url = PreferenceManager.getDefaultSharedPreferences(context).getString(MainActivity_.URL_KEY,defaultStr );
                     rssUrl = new URL(url);
-                    //rssUrl = new URL("http://davinci.fmph.uniba.sk/~bachronikov2/testing/calendar1.ics");
-                    StringBuilder b = new StringBuilder();
-                    BufferedReader r = new BufferedReader(new InputStreamReader(rssUrl.openStream()));
+                    StringBuilder stringBuilder = new StringBuilder();
+                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(rssUrl.openStream()));
 
                     try {
-                        for (String line; (line = r.readLine()) != null; ) {
-                            b.append(line).append("\n");
+                        for (String line; (line = bufferedReader.readLine()) != null; ) {
+                            stringBuilder.append(line).append("\n");
                         }
                     } finally {
-                        r.close();
+                        bufferedReader.close();
                     }
-                    rssResult = b.toString();
+                    rssResult = stringBuilder.toString();
                     return rssResult;
 
                 } catch (MalformedURLException e) {
-                    //throw new RuntimeException(e);
                     return e.getMessage();
                 } catch (IOException e) {
                     return e.getMessage();

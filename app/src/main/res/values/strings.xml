@@ -1,15 +1,17 @@
 <resources>
     <string name="app_name">M-Calendar</string>
-    <string name="attendees">Attendees</string>
-    <string name="default_name">-</string>
+    <string name="attendees_dialog_title">Attendees</string>
     <string name="okButton">OK</string>
-    <string name="organizedBy"> %1$s </string>
+    <string name="empty"> </string>
+    <string name="url_dialog_default_url">URL was not set</string>
+    <string name="url_dialog_title">Set calendar\'s URL</string>
+    <string name="meeting_dialog_organizedBy">Organizer: <b> %1$s </b> </string>
+    <string name="meeting_dialog_telephone_number">Tel. number: <b> %1$s </b> </string>
+    <string name="meeting_dialog_skype">Call on skype</string>
     <string name="meeting_name">name of meeting</string>
     <string name="more_participants"><u>and %1$s more</u></string>
     <string name="status"><u>Status: booked</u></string>
     <string name="upcomingMeetings"><u>Upcoming meetings</u></string>
-    <string name="time">%1$s</string>
-    <string name="title_activity_rssfeed">RssfeedActivity</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
@@ -19,7 +21,6 @@
 
     <string name="meeting_fragment_start">start meeting</string>
     <string name="meeting_fragment_finish">finish meeting</string>
-
 
 
 </resources>

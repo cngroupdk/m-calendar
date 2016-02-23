@@ -7,6 +7,8 @@ import android.widget.TextView;
 import org.androidannotations.annotations.EViewGroup;
 import org.androidannotations.annotations.ViewById;
 
+import dk.cngroup.m_calendar.entity.Meeting;
+
 @EViewGroup(R.layout.upcoming_meeting)
 public class UpcomingMeeting extends LinearLayout{
     @ViewById(R.id.meetingTime)
@@ -23,8 +25,10 @@ public class UpcomingMeeting extends LinearLayout{
     }
 
     public void initUpcomingMeeting(Meeting meeting){
-        if (meeting.getOrganizator().length() > 3) {
-            organizator.setText(meeting.getOrganizator().substring(0, 3));
+        if  (meeting.getOrganizator() != null){
+            if (meeting.getOrganizator().getAbbreviation().length() < 0) {
+                organizator.setText(meeting.getOrganizator().getAbbreviation());
+            }
         }
         meetingName.setText(meeting.getName());
         meetingTime.setText(meeting.getMeetingTime());

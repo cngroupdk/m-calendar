@@ -1,4 +1,4 @@
-package dk.cngroup.m_calendar;
+package dk.cngroup.m_calendar.entity;
 
 import java.util.ArrayList;
 import java.util.Collections;

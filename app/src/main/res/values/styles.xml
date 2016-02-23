@@ -92,10 +92,15 @@
     </style>
 
     <style name="CustomDialogTitle">
-        <!-- <item name="android:textColor">@color/cnLightBlue</item> -->
         <item name="android:textStyle">bold</item>
         <item name="android:layout_gravity">center_vertical|center_horizontal</item>
         <item name="android:textSize">@dimen/meeting_fragment_control_dialog_title_font_size</item>
+        <item name="android:layout_marginBottom">@dimen/meeting_fragment_control_dialog_elements_margin_bottom</item>
+    </style>
+
+    <style name="CustomDialogInfo">
+        <item name="android:layout_gravity">center_vertical|center_horizontal</item>
+        <item name="android:textSize">@dimen/meeting_fragment_control_dialog_info_font_size</item>
         <item name="android:layout_marginBottom">@dimen/meeting_fragment_control_dialog_elements_margin_bottom</item>
     </style>
 

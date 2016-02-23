@@ -1,4 +1,4 @@
-package dk.cngroup.m_calendar;
+package dk.cngroup.m_calendar.entity;
 
 
 public class CurrentState {

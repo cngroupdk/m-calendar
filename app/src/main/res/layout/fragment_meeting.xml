@@ -42,7 +42,6 @@
             <TextView style="@style/CurrentMeeting"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/organizedBy"
                     android:id="@+id/organizedBy"
                 android:layout_gravity="center" />
 
@@ -69,7 +68,6 @@
             <TextView style="@style/CurrentMeeting"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/time"
                 android:id="@+id/meetingTime"
                 android:layout_gravity="center" />
         </LinearLayout>

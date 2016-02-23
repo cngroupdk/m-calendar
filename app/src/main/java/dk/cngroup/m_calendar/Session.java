@@ -2,6 +2,10 @@ package dk.cngroup.m_calendar;
 
 import java.util.ArrayList;
 
+import dk.cngroup.m_calendar.entity.CurrentState;
+import dk.cngroup.m_calendar.entity.Meeting;
+import dk.cngroup.m_calendar.entity.OutlookCalendar;
+
 public final class Session {
     private static final Session INSTANCE = new Session();
     private OutlookCalendar outlookCalendar;

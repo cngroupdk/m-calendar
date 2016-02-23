@@ -14,8 +14,37 @@
         style="@style/CustomDialogTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:text="ahoj" />
+        android:gravity="center_horizontal" />
+
+    <TextView
+        android:id="@+id/organizedBy"
+        style="@style/CustomDialogInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/meeting_dialog_organizedBy" />
+
+    <TextView
+        android:id="@+id/telephoneNumber"
+        style="@style/CustomDialogInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/meeting_dialog_telephone_number" />
+
+
+    <ImageButton
+        android:id="@+id/skypeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/skype2" />
+
+    <View
+        android:id="@+id/separator"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="@dimen/meeting_fragment_control_dialog_separator_padding_bottom"
+        android:layout_marginTop="@dimen/meeting_fragment_control_dialog_separator_padding"
+        android:background="@color/meeting_fragment_control_dialog_stroke" />
 
     <Button
         android:id="@+id/startbtn"
