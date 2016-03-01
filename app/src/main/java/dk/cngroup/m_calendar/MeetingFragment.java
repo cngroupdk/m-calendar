@@ -64,10 +64,11 @@ public class MeetingFragment extends Fragment {
                 });
                 meetingParticipants.setText(textMoreParticipants);
             }
-            if (currentMeeting.getOrganizator() != null){
+            if (currentMeeting.getOrganizator() != null) {
                 organizedBy.setText(currentMeeting.getOrganizator().getName());
 
             }
+            organizedBy.setText(getActivity().getBaseContext().getResources().getString(R.string.unknown));
             meetingName.setText(currentMeeting.getName());
             meetingTime.setText(currentMeeting.getMeetingTime());
 
@@ -80,6 +81,7 @@ public class MeetingFragment extends Fragment {
         }
 
     }
+
 
     void showAlert() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());

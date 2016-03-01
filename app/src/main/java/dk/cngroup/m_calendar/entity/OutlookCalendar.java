@@ -42,4 +42,12 @@ public class OutlookCalendar {
         return upcomingMeetings;
     }
 
+    public ArrayList<Meeting> getAllMeetings(){
+        return meetings;
+    }
+
+    public void setMeetings(ArrayList<Meeting> meetings){
+        this.meetings = meetings;
+    }
+
 }

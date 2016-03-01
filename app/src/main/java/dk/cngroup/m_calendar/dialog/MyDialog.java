@@ -4,11 +4,15 @@ import android.app.Dialog;
 import android.content.Context;
 import android.os.CountDownTimer;
 
+import dk.cngroup.m_calendar.SessionAllOrganizersInfo;
+
 public class MyDialog extends Dialog {
 
 
     private final int LIMIT = 30000;
     private final int SECOND =  1000;
+
+    private SessionAllOrganizersInfo sessionAllOrganizersInfo = SessionAllOrganizersInfo.getInstance();
 
 
     public MyDialog(Context context) {
@@ -25,6 +29,8 @@ public class MyDialog extends Dialog {
             @Override
             public void onFinish() {
                 dialog.dismiss();
+
+
             }
         }.start();
 
@@ -32,5 +38,9 @@ public class MyDialog extends Dialog {
 
     }
 
-
+    @Override
+    public void dismiss() {
+        super.dismiss();
+        sessionAllOrganizersInfo.setOrganizer(null);
+    }
 }

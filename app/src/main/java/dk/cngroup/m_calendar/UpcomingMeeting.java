@@ -1,6 +1,7 @@
 package dk.cngroup.m_calendar;
 
 import android.content.Context;
+import android.util.Log;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -18,18 +19,19 @@ public class UpcomingMeeting extends LinearLayout{
     TextView meetingName;
 
     @ViewById(R.id.organizer)
-    TextView organizator;
+    TextView organizer;
 
     public UpcomingMeeting(Context context) {
         super(context);
     }
 
-    public void initUpcomingMeeting(Meeting meeting){
+    public void initUpcomingMeeting(Meeting meeting, int position){
         if  (meeting.getOrganizator() != null){
-            if (meeting.getOrganizator().getAbbreviation().length() < 0) {
-                organizator.setText(meeting.getOrganizator().getAbbreviation());
+            if (!meeting.getOrganizator().getAbbreviation().equals("")) {
+                organizer.setText(meeting.getOrganizator().getAbbreviation().substring(0,3));
             }
         }
+        organizer.setText(position+1 + ".");
         meetingName.setText(meeting.getName());
         meetingTime.setText(meeting.getMeetingTime());
     }

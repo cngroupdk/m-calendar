@@ -4,12 +4,13 @@ import android.content.Context;
 import android.view.View;
 import android.widget.Button;
 
-import dk.cngroup.m_calendar.entity.CurrentState;
-import dk.cngroup.m_calendar.entity.Meeting;
 import dk.cngroup.m_calendar.R;
 import dk.cngroup.m_calendar.Session;
+import dk.cngroup.m_calendar.entity.CurrentState;
+import dk.cngroup.m_calendar.entity.Meeting;
 
 public class CurrentMeetingDialog extends MeetingDialog {
+
     public CurrentMeetingDialog(final Context context, Meeting meeting) {
         super(context, meeting);
 
@@ -18,7 +19,7 @@ public class CurrentMeetingDialog extends MeetingDialog {
         final Session session = Session.getInstance();
 
         View separator = this.findViewById(R.id.separator);
-        separator.setVisibility(View.VISIBLE);
+        separator.setVisibility(View.GONE);
 
         Button startButton = (Button) this.findViewById(R.id.startbtn);
         startButton.setVisibility(View.VISIBLE);
@@ -43,6 +44,23 @@ public class CurrentMeetingDialog extends MeetingDialog {
             }
         });
 
+
+
+
+
+
+
+
+
+
+
     }
+
+    public void update(){
+
+    }
+
+
+
 
 }

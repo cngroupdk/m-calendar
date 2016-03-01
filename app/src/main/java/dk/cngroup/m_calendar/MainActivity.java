@@ -19,19 +19,19 @@ import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.FragmentById;
 import org.androidannotations.annotations.ViewById;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.GregorianCalendar;
-import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
+
 
 import dk.cngroup.m_calendar.entity.CurrentState;
 import dk.cngroup.m_calendar.entity.Meeting;
 
-import static dk.cngroup.m_calendar.MeetingRoomStatus.*;
+import static dk.cngroup.m_calendar.MeetingRoomStatus.BOOKED;
+import static dk.cngroup.m_calendar.MeetingRoomStatus.FREE;
+import static dk.cngroup.m_calendar.MeetingRoomStatus.OCCUPIED;
 
 @EActivity(R.layout.activity_main)
 public class MainActivity extends AppCompatActivity {
@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
     UpcomingMeetingsFragment upcomingMeetingsFragment;
 
     private Meeting currentMeeting = null;
-    private static final int PERIOD = 5000;
+    private static final int PERIOD = 60000;
     private static final int INITIAL_DELAY = 1000;
     public static final String URL_KEY = "URL";
 
@@ -58,22 +58,23 @@ public class MainActivity extends AppCompatActivity {
     @AfterViews
     public void fillMeeting() {
 
+
         final String PREFS_NAME = "MyPrefsFile";
         final String IS_FIRST_RUN_KEY = "isFirstRun";
 
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
 
-
-
-
         if (settings.getBoolean(IS_FIRST_RUN_KEY, true)) {
             showAlert("");
             settings.edit().putBoolean(IS_FIRST_RUN_KEY, false).apply();
+
         }
 
 
         final Session session = Session.getInstance();
+        final SessionAllOrganizersInfo sessionAllOrganizersInfo = SessionAllOrganizersInfo.getInstance();
         final DataDownloader dataDownloader = new DataDownloader(getBaseContext());
+        final PersonInfoDownloader personInfoDownloader = new PersonInfoDownloader();
         dataDownloader.getCalendarFromUrl();
 
         if (session.getOutlookCalendar() == null) {
@@ -89,10 +90,17 @@ public class MainActivity extends AppCompatActivity {
                 handler.handleMessage(null);
                 final Runnable myRunnable = new Runnable() {
                     public void run() {
-                      //  GregorianCalendar now = handler.getNow();
                         dataDownloader.getCalendarFromUrl();
+                        personInfoDownloader.getOrganizersInfo();
 
+//                        if (session.getOutlookCalendar() != null) {
+//                            sessionAllOrganizersInfo.setTotalCountOfMeetings(session.getOutlookCalendar().getAllMeetings().size());
+//                            if (sessionAllOrganizersInfo.equallyLarge()) {
+//                                Log.e("RUN", "setting new meetings bcs equally large");
+//                                session.setOutlookCalendar(sessionAllOrganizersInfo.getNewMeetings());
+//                                sessionAllOrganizersInfo.setNewMeetings(new ArrayList<Meeting>());
                         if (session.getOutlookCalendar() != null) {
+
                             currentMeeting = session.getOutlookCalendar().getCurrentMeeting();
                             CurrentState cs = session.getCurrentState();
 
@@ -120,15 +128,17 @@ public class MainActivity extends AppCompatActivity {
                                 session.setMeetingRoomStatus(BOOKED);
                                 changeLayout(session);
 
-                            } else  {
+                            } else {
                                 session.setMeetingRoomStatus(FREE);
                                 changeLayout(session);
                             }
                         }
+
                     }
                 };
                 handler.post(myRunnable);
             }
+
         };
         timer.scheduleAtFixedRate(task, INITIAL_DELAY, PERIOD);
 
