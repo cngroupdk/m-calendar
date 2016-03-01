@@ -19,19 +19,17 @@ import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.FragmentById;
 import org.androidannotations.annotations.ViewById;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.GregorianCalendar;
-import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import dk.cngroup.m_calendar.entity.CurrentState;
 import dk.cngroup.m_calendar.entity.Meeting;
 
-import static dk.cngroup.m_calendar.MeetingRoomStatus.*;
+import static dk.cngroup.m_calendar.MeetingRoomStatus.BOOKED;
+import static dk.cngroup.m_calendar.MeetingRoomStatus.FREE;
+import static dk.cngroup.m_calendar.MeetingRoomStatus.OCCUPIED;
 
 @EActivity(R.layout.activity_main)
 public class MainActivity extends AppCompatActivity {
@@ -63,14 +61,10 @@ public class MainActivity extends AppCompatActivity {
 
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
 
-
-
-
         if (settings.getBoolean(IS_FIRST_RUN_KEY, true)) {
             showAlert("");
             settings.edit().putBoolean(IS_FIRST_RUN_KEY, false).apply();
         }
-
 
         final Session session = Session.getInstance();
         final DataDownloader dataDownloader = new DataDownloader(getBaseContext());
@@ -79,9 +73,7 @@ public class MainActivity extends AppCompatActivity {
         if (session.getOutlookCalendar() == null) {
             setFree();
         }
-
         final CurrentMeetingHandler handler = new CurrentMeetingHandler();
-
 
         Timer timer = new Timer();
         TimerTask task = new TimerTask() {
@@ -89,9 +81,7 @@ public class MainActivity extends AppCompatActivity {
                 handler.handleMessage(null);
                 final Runnable myRunnable = new Runnable() {
                     public void run() {
-                      //  GregorianCalendar now = handler.getNow();
                         dataDownloader.getCalendarFromUrl();
-
                         if (session.getOutlookCalendar() != null) {
                             currentMeeting = session.getOutlookCalendar().getCurrentMeeting();
                             CurrentState cs = session.getCurrentState();
@@ -120,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
                                 session.setMeetingRoomStatus(BOOKED);
                                 changeLayout(session);
 
-                            } else  {
+                            } else {
                                 session.setMeetingRoomStatus(FREE);
                                 changeLayout(session);
                             }
@@ -131,7 +121,6 @@ public class MainActivity extends AppCompatActivity {
             }
         };
         timer.scheduleAtFixedRate(task, INITIAL_DELAY, PERIOD);
-
     }
 
 
@@ -148,7 +137,6 @@ public class MainActivity extends AppCompatActivity {
             case OCCUPIED:
                 setOccupied();
                 break;
-
         }
     }
 
@@ -219,10 +207,6 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void handleMessage(Message msg) {
             this.now = new GregorianCalendar();
-        }
-
-        public GregorianCalendar getNow() {
-            return now;
         }
     }
 

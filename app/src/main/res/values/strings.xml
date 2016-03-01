@@ -12,6 +12,8 @@
     <string name="more_participants"><u>and %1$s more</u></string>
     <string name="status"><u>Status: booked</u></string>
     <string name="upcomingMeetings"><u>Upcoming meetings</u></string>
+    <string name="unknown">Unknown</string>
+
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>

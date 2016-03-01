@@ -31,7 +31,7 @@ public class MeetingAdapter extends ArrayAdapter<Meeting> {
             upcomingMeeting = (UpcomingMeeting) convertView;
         }
 
-        upcomingMeeting.initUpcomingMeeting(getItem(position));
+        upcomingMeeting.initUpcomingMeeting(getItem(position), position);
         return upcomingMeeting;
     }
 }

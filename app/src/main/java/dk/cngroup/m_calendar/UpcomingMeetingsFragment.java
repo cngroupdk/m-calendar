@@ -4,7 +4,6 @@ import android.app.Fragment;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
-import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -17,7 +16,6 @@ import org.androidannotations.annotations.ViewById;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import dk.cngroup.m_calendar.dialog.MeetingDialog;
 import dk.cngroup.m_calendar.entity.Meeting;
 import dk.cngroup.m_calendar.entity.OutlookCalendar;
 import dk.cngroup.m_calendar.layout.MeetingAdapter;
@@ -63,14 +61,15 @@ public class UpcomingMeetingsFragment extends Fragment {
                 }
             });
 
-
-            listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    Meeting selectedMeeting = (Meeting) parent.getItemAtPosition(position);
-                    new MeetingDialog(getActivity(), selectedMeeting);
-                }
-            });
+            // prepared for organizer
+//            listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//                @Override
+//                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                    Meeting selectedMeeting = (Meeting) parent.getItemAtPosition(position);
+//                        new HttpClient(selectedMeeting.getOrganizator());
+//                        new MeetingDialog(getActivity(), selectedMeeting);
+//                }
+//            });
         }
     }
 

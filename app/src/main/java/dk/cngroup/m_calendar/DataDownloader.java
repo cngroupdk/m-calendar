@@ -26,28 +26,40 @@ public class DataDownloader {
 
     public String getCalendarFromUrl(){
         Log.e("SERVICE", "init");
-
         AsyncTask<Object, Void, String> t = new AsyncTask<Object, Void, String>() {
             @Override
             protected String doInBackground(Object... params) {
                 try {
                     Log.e("SERVICE", "do in Background");
-                   // String defaultStr = "UrlWasNotSet";
                     String defaultStr = context.getResources().getString(R.string.url_dialog_default_url);
                     String url = PreferenceManager.getDefaultSharedPreferences(context).getString(MainActivity_.URL_KEY,defaultStr );
                     rssUrl = new URL(url);
                     StringBuilder stringBuilder = new StringBuilder();
                     BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(rssUrl.openStream()));
+                    String res = "";
 
                     try {
                         for (String line; (line = bufferedReader.readLine()) != null; ) {
-                            stringBuilder.append(line).append("\n");
+                            if (line.startsWith("BEGIN:VEVENT")){
+                                res += line + "\n";
+                            }
+                            else if (line.startsWith("END:VEVENT")){
+                                res += line + "\n";
+                            }
+                            else if (line.startsWith("SUMMARY")){
+                                res += line + "\n";
+                            }
+                            else if (line.startsWith("DTSTART")){
+                                res += line + "\n";
+                            }
+                            else if (line.startsWith("DTEND")){
+                                res += line + "\n";
+                            }
                         }
                     } finally {
                         bufferedReader.close();
                     }
-                    rssResult = stringBuilder.toString();
-                    return rssResult;
+                    return res;
 
                 } catch (MalformedURLException e) {
                     return e.getMessage();
@@ -61,6 +73,7 @@ public class DataDownloader {
                 Log.e("SERVICE", "post execute ");
                 Session session = Session.getInstance();
                 ArrayList<Meeting> meetings = dataParser.getMeetingsFromString(mess);
+                Log.e("SERVICE",meetings.toString());
                 session.setOutlookCalendar(meetings);
             }
         };
