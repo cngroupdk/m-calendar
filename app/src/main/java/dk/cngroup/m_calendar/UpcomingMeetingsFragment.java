@@ -60,16 +60,6 @@ public class UpcomingMeetingsFragment extends Fragment {
                 public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
                 }
             });
-
-            // prepared for organizer
-//            listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//                @Override
-//                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                    Meeting selectedMeeting = (Meeting) parent.getItemAtPosition(position);
-//                        new HttpClient(selectedMeeting.getOrganizator());
-//                        new MeetingDialog(getActivity(), selectedMeeting);
-//                }
-//            });
         }
     }
 

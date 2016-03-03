@@ -16,7 +16,7 @@ public class SkypeManager {
         this.skypeName = skypeName;
         Log.e("SKYPE", "INITIALIZE");
         if (!isSkypeClientInstalled()) {
-            Log.e("SKYPE", "NOT INSTALED");
+            Log.e("SKYPE", "NOT INSTALLED");
             goToMarket();
             return;
         }

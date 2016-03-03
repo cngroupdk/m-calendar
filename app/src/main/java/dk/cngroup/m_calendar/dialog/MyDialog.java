@@ -7,19 +7,13 @@ import android.os.CountDownTimer;
 
 public class MyDialog extends Dialog {
 
-
-    private final int LIMIT = 30000;
-    private final int SECOND =  1000;
-
-
-
     public MyDialog(Context context) {
         super(context);
-
         final Dialog dialog = this;
+        final int LIMIT = 30000;
+        final int SECOND = 1000;
 
         new CountDownTimer(LIMIT, SECOND) {
-
             @Override
             public void onTick(long millisUntilFinished) {
             }
@@ -27,13 +21,8 @@ public class MyDialog extends Dialog {
             @Override
             public void onFinish() {
                 dialog.dismiss();
-
-
             }
         }.start();
-
-
-
     }
 
     @Override
