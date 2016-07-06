@@ -1,6 +1,8 @@
 package dk.cngroup.m_calendar;
 
+import android.app.Activity;
 import android.app.Fragment;
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
@@ -45,21 +47,25 @@ public class UpcomingMeetingsFragment extends Fragment {
             upcomingMeetings = outlookCalendar.getUpcomingMeetings();
             Meeting[] meetings1 = new Meeting[upcomingMeetings.size()];
             meetings1 = upcomingMeetings.toArray(meetings1);
-            ListAdapter listAdapter = new MeetingAdapter(getActivity().getBaseContext(), Arrays.asList(meetings1));
-            listview.setAdapter(listAdapter);
-            setListViewHeightBasedOnChildren(listview);
-            controlButtons();
+            Activity activity = getActivity();
+            if (activity != null) {
+                ListAdapter listAdapter = new MeetingAdapter(activity.getBaseContext(), Arrays.asList(meetings1));
+                listview.setAdapter(listAdapter);
 
-            listview.setOnScrollListener(new AbsListView.OnScrollListener() {
-                @Override
-                public void onScrollStateChanged(AbsListView view, int scrollState) {
-                    controlButtons();
-                }
+                setListViewHeightBasedOnChildren(listview);
+                controlButtons();
 
-                @Override
-                public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-                }
-            });
+                listview.setOnScrollListener(new AbsListView.OnScrollListener() {
+                    @Override
+                    public void onScrollStateChanged(AbsListView view, int scrollState) {
+                        controlButtons();
+                    }
+
+                    @Override
+                    public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+                    }
+                });
+            }
         }
     }
 

@@ -73,7 +73,7 @@ public class DataDownloader {
                 Log.e("SERVICE", "post execute ");
                 Session session = Session.getInstance();
                 ArrayList<Meeting> meetings = dataParser.getMeetingsFromString(mess);
-                Log.e("SERVICE",meetings.toString());
+                Log.e("SERVICE",meetings.toString() + "number of meetings= "+ meetings.size());
                 session.setOutlookCalendar(meetings);
             }
         };

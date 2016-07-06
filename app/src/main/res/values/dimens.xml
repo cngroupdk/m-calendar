@@ -13,6 +13,8 @@
     <dimen name="meeting_fragment_control_dialog_title_font_size">24sp</dimen>
     <dimen name="upcoming_meeting_organizer_right_margin">5dp</dimen>
     <dimen name="upcoming_meeting_organizer_label_size">92dp</dimen>
+    <dimen name="upcoming_meeting_organizer_label_text_size">30sp</dimen>
+
     <dimen name="text_view_status_text_size">40sp</dimen>
     <dimen name="time_text_size">50sp</dimen>
     <dimen name="upcoming_meeting_row_height">30dp</dimen>

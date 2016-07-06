@@ -22,15 +22,22 @@ public class CurrentMeetingDialog extends MeetingDialog {
         separator.setVisibility(View.GONE);
 
         Button startButton = (Button) this.findViewById(R.id.startbtn);
-        startButton.setVisibility(View.VISIBLE);
-        startButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                session.setCurrentState(new CurrentState(currentMeeting));
-                session.getCurrentState().setIsStarted(true);
-                dialog.cancel();
-            }
-        });
+
+        CurrentState cs = session.getCurrentState();
+        if (cs != null && cs.isStarted()){
+            startButton.setVisibility(View.GONE);
+        }
+        else {
+            startButton.setVisibility(View.VISIBLE);
+            startButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    session.setCurrentState(new CurrentState(currentMeeting));
+                    session.getCurrentState().setIsStarted(true);
+                    dialog.cancel();
+                }
+            });
+        }
 
         Button finishButton = (Button) this.findViewById(R.id.finish);
         finishButton.setVisibility(View.VISIBLE);
@@ -43,17 +50,6 @@ public class CurrentMeetingDialog extends MeetingDialog {
 
             }
         });
-
-
-
-
-
-
-
-
-
-
-
     }
 
     public void update(){
