@@ -68,7 +68,9 @@ public class MeetingFragment extends Fragment {
                 organizedBy.setText(currentMeeting.getOrganizator().getName());
 
             }
-            organizedBy.setText(getActivity().getBaseContext().getResources().getString(R.string.unknown));
+            if (isAdded()) {
+                organizedBy.setText(getActivity().getBaseContext().getResources().getString(R.string.unknown));
+            }
             meetingName.setText(currentMeeting.getName());
             meetingTime.setText(currentMeeting.getMeetingTime());
 

@@ -148,6 +148,7 @@ public class MainActivity extends AppCompatActivity {
             meetingFragment.getView().setVisibility(View.VISIBLE);
         }
         roomStatus.setBackgroundColor(getResources().getColor(R.color.cnRed));
+        upcomingMeetingsFragment.setConstantsBasedOnLayout(R.color.cnRed,3 );
         upcomingMeetingsFragment.init();
     }
 
@@ -169,6 +170,7 @@ public class MainActivity extends AppCompatActivity {
         }
         roomStatus.setBackgroundColor(getResources().getColor(R.color.cnLightBlue));
         roomStatus.setText(getResources().getString(R.string.meeting_room_status_free));
+        upcomingMeetingsFragment.setConstantsBasedOnLayout(R.color.cnDarkBlue, 5);
         upcomingMeetingsFragment.init();
     }
 

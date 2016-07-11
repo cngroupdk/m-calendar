@@ -19,23 +19,24 @@
             android:text="@string/upcomingMeetings"
             android:textSize="@dimen/upcoming_meetings_text_size"
             android:layout_marginBottom="@dimen/upcoming_meetings_fragment_label_bottom_margin"
-            android:textColor="@color/cnLightBlue"
-            android:id="@+id/textView"
-            android:gravity="center_horizontal" />
+            android:textColor="@color/cnDarkBlue"
+            android:id="@+id/upcomingMeetings"
+            android:gravity="center_vertical|left" />
 
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/upButton"
             android:src="@drawable/up"
+            android:visibility="invisible"
             android:background="@drawable/menu_button"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_vertical|left" />
 
         <ListView
-            android:layout_marginTop="7dp"
-            android:layout_marginBottom="7dp"
-            android:layout_width="match_parent"
-            android:layout_height="450dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:textColor="@color/labels"
             android:id="@+id/listView"
             android:clickable="false"
@@ -56,8 +57,7 @@
             android:id="@+id/downButton"
             android:src="@drawable/down"
             android:background="@drawable/menu_button"
-            android:layout_gravity="center_horizontal"
-           />
+            android:layout_gravity="left" />
     </LinearLayout>
 
 </LinearLayout>

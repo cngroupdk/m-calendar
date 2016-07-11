@@ -47,16 +47,11 @@ public class CurrentMeetingDialog extends MeetingDialog {
                 session.setCurrentState(new CurrentState(currentMeeting));
                 session.getCurrentState().setIsFinished(true);
                 dialog.cancel();
-
             }
         });
     }
 
     public void update(){
-
     }
-
-
-
 
 }

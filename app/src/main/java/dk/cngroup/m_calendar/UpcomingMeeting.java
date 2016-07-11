@@ -17,20 +17,12 @@ public class UpcomingMeeting extends LinearLayout {
     @ViewById(R.id.nameOfMeeting)
     TextView meetingName;
 
-    @ViewById(R.id.organizer)
-    TextView organizer;
 
     public UpcomingMeeting(Context context) {
         super(context);
     }
 
     public void initUpcomingMeeting(Meeting meeting, int position) {
-        if (meeting.getOrganizator() != null) {
-            if (!meeting.getOrganizator().getAbbreviation().equals("")) {
-                organizer.setText(meeting.getOrganizator().getAbbreviation().substring(0, 3));
-            }
-        }
-        organizer.setText(position + 1 + ".");
         meetingName.setText(meeting.getName());
         meetingTime.setText(meeting.getMeetingTime());
     }
